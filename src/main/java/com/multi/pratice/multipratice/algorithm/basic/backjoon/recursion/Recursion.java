@@ -1,6 +1,6 @@
 package com.multi.pratice.multipratice.algorithm.basic.backjoon.recursion;
 
-import com.sun.tools.jdeprscan.scan.Scan;
+
 
 import java.util.Scanner;
 
