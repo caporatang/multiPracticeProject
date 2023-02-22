@@ -15,7 +15,7 @@ on:
 
 jobs:
   deploy: 
-    runs-on: macOs
+    runs-on: macos-latest
 
     steps:
     - name: Checkout
