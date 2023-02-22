@@ -39,3 +39,18 @@ jobs:
     # Docker Hub push (4)
     - name: docker Hub push
       run: docker push caporatang/hellotest
+
+
+      # local connect & Docker 명령어 실행 (8)
+    - name: Local Connection
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.LOCAL_HOST }}
+        username: taeil
+        password: ${{ secrets.LOCAL_HOST_PWD }}
+        port: ${{ secrets.LOCAL_HOST_PORT }}
+        timeout: 60s
+        script: |
+          sudo docker stop hellotest
+          sudo docker rm hellotest
+          sudo docker run -it -d -p 8080:8080 --name hellotest caporatang/hellotest
