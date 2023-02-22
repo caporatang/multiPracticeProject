@@ -1,8 +1,8 @@
 package com.multi.pratice.multipratice.java.basic.oop.abstractclass;
 
-import sun.security.krb5.internal.crypto.Des;
 
-import java.awt.*;
+
+
 
 /**
  * packageName : com.multi.pratice.multipratice.java.basic.oop.abstractclass
