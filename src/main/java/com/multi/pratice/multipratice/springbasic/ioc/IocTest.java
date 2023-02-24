@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * -------------------------------------------------------
  * 2023/02/23        taeil                   최초생성
  */
-@SpringBootApplication
+//@SpringBootApplication
 public class IocTest {
 
     public static void main(String[] args) {
