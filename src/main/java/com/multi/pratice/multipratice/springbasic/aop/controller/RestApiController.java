@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.springbasic.aop.controller;
 
+import com.multi.pratice.multipratice.springbasic.aop.annotation.Timer;
 import com.multi.pratice.multipratice.springbasic.aop.dto.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,4 +29,10 @@ public class RestApiController {
         return user;
     }
 
+    @Timer
+    @DeleteMapping("/delete")
+    public void delete() throws InterruptedException {
+        // db logic test
+        Thread.sleep(1000 * 2);
+    }
 }
