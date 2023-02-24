@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.springbasic.aop.controller;
 
+import com.multi.pratice.multipratice.springbasic.aop.annotation.Decode;
 import com.multi.pratice.multipratice.springbasic.aop.annotation.Timer;
 import com.multi.pratice.multipratice.springbasic.aop.dto.User;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,15 @@ public class RestApiController {
     public User post(@RequestBody User user) {
         return user;
     }
+
+    @Decode
+    @PutMapping("/put")
+    public User put(@RequestBody User user) {
+        System.out.println("put");
+        System.out.println(user);
+        return user;
+    }
+
 
     @Timer
     @DeleteMapping("/delete")
