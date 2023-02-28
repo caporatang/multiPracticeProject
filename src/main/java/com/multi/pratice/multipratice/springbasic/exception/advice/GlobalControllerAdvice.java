@@ -40,7 +40,7 @@ public class GlobalControllerAdvice {
     // 특정 exception을 잡아보자
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseEntity methodArgumentNotValidException(MethodArgumentNotValidException e) {
-
+        System.out.println("나는 글로벌 캐치");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
