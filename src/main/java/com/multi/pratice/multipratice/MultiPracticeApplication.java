@@ -4,12 +4,14 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.util.Base64;
 
 @SpringBootApplication
 //@EnableBatchProcessing
 @ServletComponentScan // -> 정의한 filter를 특정 객체에만 적용시키고 싶을때 사용
+@EnableAsync
 public class MultiPracticeApplication {
 
     public static void main(String[] args) {

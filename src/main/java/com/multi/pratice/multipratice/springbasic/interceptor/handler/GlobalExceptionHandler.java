@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotNameMatchException.class)
-    public ResponseEntity NotNameMathceException() {
+    public ResponseEntity NotNameMatchException() {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 }
