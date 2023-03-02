@@ -13,6 +13,5 @@ package com.multi.pratice.multipratice.springbasic.async;
  */
 public class Async {
     // 간단한 비동기 처리
-
     // @Async를 붙이게되면 별도의 스레드에서 처리된다
 }
