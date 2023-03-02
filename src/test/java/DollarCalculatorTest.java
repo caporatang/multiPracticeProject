@@ -1,6 +1,6 @@
-import com.multi.pratice.multipratice.springbasic.junit.Calculator;
-import com.multi.pratice.multipratice.springbasic.junit.DollarCalculator;
-import com.multi.pratice.multipratice.springbasic.junit.MarketApi;
+import com.multi.pratice.multipratice.springbasic.junit.basicjavajunit.Calculator;
+import com.multi.pratice.multipratice.springbasic.junit.basicjavajunit.DollarCalculator;
+import com.multi.pratice.multipratice.springbasic.junit.basicjavajunit.MarketApi;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -56,7 +56,7 @@ public class DollarCalculatorTest {
 
     @Test
     public void mockTest() {
-        
+
         DollarCalculator dollarCalculator = new DollarCalculator(marketApi);
         dollarCalculator.init();
 

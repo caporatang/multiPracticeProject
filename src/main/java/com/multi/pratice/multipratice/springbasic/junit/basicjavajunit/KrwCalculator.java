@@ -1,4 +1,4 @@
-package com.multi.pratice.multipratice.springbasic.junit;
+package com.multi.pratice.multipratice.springbasic.junit.basicjavajunit;
 
 /**
  * packageName : com.multi.pratice.multipratice.springbasic.junit
