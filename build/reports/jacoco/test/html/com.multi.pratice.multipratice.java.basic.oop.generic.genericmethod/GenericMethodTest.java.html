@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GenericMethodTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.java.basic.oop.generic.genericmethod</a> &gt; <span class="el_source">GenericMethodTest.java</span></div><h1>GenericMethodTest.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.java.basic.oop.generic.genericmethod;
+
+import javax.persistence.criteria.CriteriaBuilder;
+
+/**
+ * packageName : com.multi.pratice.multipratice.java.basic.oop.generic.genericmethod
+ * fileName : GenericMethodTest
+ * author : taeil
+ * date : 2023/02/15
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/15        taeil                   최초생성
+ */
+<span class="nc" id="L16">public class GenericMethodTest {</span>
+    // 제네릭메서드를 활용해서 좌표를 받아 사각형의 면적을 구해보자!
+
+    public static &lt; T, V &gt; double makeRectangle(Point&lt;T,V&gt; p1, Point&lt;T,V&gt; p2) {
+
+<span class="nc" id="L21">        double left = ((Number) p1.getX()).doubleValue();</span>
+<span class="nc" id="L22">        double right = ((Number) p2.getX()).doubleValue();</span>
+
+<span class="nc" id="L24">        double top = ((Number) p1.getY()).doubleValue();</span>
+<span class="nc" id="L25">        double bottom = ((Number) p2.getY()).doubleValue();</span>
+
+<span class="nc" id="L27">        double width = right - left;</span>
+<span class="nc" id="L28">        double height = bottom - top;</span>
+
+<span class="nc" id="L30">        return width * height;</span>
+    }
+
+    public static void main(String[] args) {
+<span class="nc" id="L34">        Point&lt;Integer, Double&gt; p1 = new Point&lt;Integer, Double&gt;(0, 0.0);</span>
+<span class="nc" id="L35">        Point&lt;Integer, Double&gt; p2 = new Point&lt;&gt;(10, 10.0);</span>
+
+<span class="nc" id="L37">        double size = GenericMethodTest.&lt;Integer, Double&gt;makeRectangle(p1, p2);</span>
+<span class="nc" id="L38">        System.out.println(size);</span>
+<span class="nc" id="L39">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.filter.filterr</a> &gt; <span class="el_source">GlobalFilter.java</span></div><h1>GlobalFilter.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.filter.filterr;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.util.ContentCachingRequestWrapper;
+import org.springframework.web.util.ContentCachingResponseWrapper;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.filter.filterr
+ * fileName : GlobalFilter
+ * author : taeil
+ * date : 2023/02/28
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/28        taeil                   최초생성
+ */
+<span class="nc" id="L24">@Slf4j</span>
+// @Component
+
+// -&gt; SpringBootApplication에 @ServletComponentScan을 추가, 지정한 url patterns로 들어오는 요청에 대해 필터 적용
+@WebFilter(urlPatterns = &quot;/api/test/*&quot;)
+<span class="nc" id="L29">public class GlobalFilter implements Filter {</span>
+
+    @Override
+    public void doFilter(ServletRequest request,
+                         ServletResponse response,
+                         FilterChain chain) throws IOException, ServletException {
+
+        // 선처리
+<span class="nc" id="L37">        ContentCachingRequestWrapper httpServletRequest</span>
+                = new ContentCachingRequestWrapper((HttpServletRequest) request);
+<span class="nc" id="L39">        ContentCachingResponseWrapper httpServletResponse</span>
+                = new ContentCachingResponseWrapper ((HttpServletResponse) response);
+
+
+<span class="nc" id="L43">        chain.doFilter(httpServletRequest, httpServletResponse);</span>
+
+
+<span class="nc" id="L46">        String url = httpServletRequest.getRequestURI();</span>
+        // 후처리
+        // 요청 정보 --&gt; 읽어오는것은 커서 단위로 읽어옴.. -&gt; getContentAsByteArray
+<span class="nc" id="L49">        String reqContent = new String(httpServletRequest.getContentAsByteArray());</span>
+
+<span class="nc" id="L51">        log.info(&quot;request url : {}, requestBody : {}&quot;, url, reqContent);</span>
+
+<span class="nc" id="L53">        String resContent = new String(httpServletResponse.getContentAsByteArray());</span>
+<span class="nc" id="L54">        int httpStatus = httpServletResponse.getStatus();</span>
+
+        // 커서 단위로 한번 다 읽어온 후, 커서가 제일 최하단으로 내려가있기 때문에 response Body에 데이터를 담아줄수없음 --&gt; 복사해서 넣어주자
+<span class="nc" id="L57">        httpServletResponse.copyBodyToResponse();</span>
+
+<span class="nc" id="L59">        log.info(&quot;response status : {}, responseBody : {}&quot;, httpStatus, resContent);</span>
+<span class="nc" id="L60">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

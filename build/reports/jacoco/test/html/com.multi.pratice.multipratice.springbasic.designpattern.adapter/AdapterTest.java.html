@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdapterTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.designpattern.adapter</a> &gt; <span class="el_source">AdapterTest.java</span></div><h1>AdapterTest.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.designpattern.adapter;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.designpattern.adapter
+ * fileName : AdapterTest
+ * author : taeil
+ * date : 2023/02/17
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/17        taeil                   최초생성
+ */
+<span class="nc" id="L14">public class AdapterTest {</span>
+
+    // 앞에서 만든 헤어드라이기, 에어컨, 청소기를 사용할수있는 콘센트
+    public static void connect(Electronic110V electronic110V) {
+<span class="nc" id="L18">        electronic110V.powerOn();</span>
+<span class="nc" id="L19">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L22">        HairDryer hairDryer = new HairDryer();</span>
+<span class="nc" id="L23">        connect(hairDryer);</span>
+
+        // 콘센트에는 110v 짜리만 사용할수있는데 220짜리 청소기를 사용하려고 해서 에러가 남
+<span class="nc" id="L26">        Cleaner cleaner = new Cleaner();</span>
+        // connect(cleaner);
+
+        // 기본 생성자를 이용해서, 중간에 한번 인터페이스를 거쳐서 연결되는것이 어댑터패턴
+<span class="nc" id="L30">        Electronic110V adapter = new SocketAdapter(cleaner);</span>
+<span class="nc" id="L31">        connect(adapter);</span>
+        // 중간에 연결되는 인터페이스를 공통으로 하나로 묶어서 사용하면 더 좋을듯!
+<span class="nc" id="L33">        AirConditioner airConditioner = new AirConditioner();</span>
+<span class="nc" id="L34">        Electronic110V airAdapter = new SocketAdapter(airConditioner);</span>
+<span class="nc" id="L35">        connect(airAdapter);</span>
+
+
+<span class="nc" id="L38">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

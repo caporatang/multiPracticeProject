@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.java.basic.oop.extendss.Overridee</a> &gt; <span class="el_source">CustomerTest.java</span></div><h1>CustomerTest.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.java.basic.oop.extendss.Overridee;
+
+/**
+ * packageName : com.multi.pratice.multipratice.java.basic.oop.extendss
+ * fileName : CustomerTest
+ * author : taeil
+ * date : 2023/01/18
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/01/18        taeil                   최초생성
+ */
+<span class="nc" id="L14">public class CustomerTest {</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L17">        Customer customerLee = new Customer(10010, &quot;lee~&quot;);</span>
+<span class="nc" id="L18">        customerLee.bonusPoint = 1000;</span>
+<span class="nc" id="L19">        int price = customerLee.calcPrice(1000);</span>
+<span class="nc" id="L20">        System.out.println(customerLee.showCustomerInfo() + price);</span>
+
+
+<span class="nc" id="L23">        VIPCustomer customerKim = new VIPCustomer(10020, &quot;kim~&quot;);</span>
+<span class="nc" id="L24">        customerKim.bonusPoint = 10000;</span>
+<span class="nc" id="L25">        price = customerKim.calcPrice(1000);</span>
+<span class="nc" id="L26">        System.out.println(customerKim.showCustomerInfo() + price);</span>
+
+
+        // 이런 경우에, Customer타입으로 받는다고 하더라도 인스턴스(new)에서 오버라이드한 메서드가 호출된다.
+        // 이런 방식은 가상함수 방식이라고하고 , 자바에서는 가상메서드라고 함, 자바의 모든 메서드는 가상메서드다
+<span class="nc" id="L31">        Customer vc = new VIPCustomer(12345, &quot;noname&quot;);</span>
+<span class="nc" id="L32">        System.out.println(vc.calcPrice(1000));</span>
+
+<span class="nc" id="L34">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

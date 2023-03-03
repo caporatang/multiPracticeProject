@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ParameterAop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.aop.aopp</a> &gt; <span class="el_source">ParameterAop.java</span></div><h1>ParameterAop.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.aop.aopp;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Method;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.aop.aopp
+ * fileName : ParameterAop
+ * author : taeil
+ * date : 2023/02/24
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/24        taeil                   최초생성
+ */
+@Aspect
+@Component
+<span class="fc" id="L26">public class ParameterAop {</span>
+    // point cut : 어느 부분에 적용시킬지.. 연산수식이 많음
+
+    // aop 패키지 안에 컨트롤러 안에 있는 모든 메서드에 적용할거야.
+    @Pointcut(&quot;execution(* com.multi.pratice.multipratice.springbasic.aop.controller..*.*(..))&quot;)
+<span class="nc" id="L31">    private void cut() {}</span>
+
+    @Before(&quot;cut()&quot;) // --&gt; cut이 실행되는 시점에 before때 이 메서드를 실행해
+    public void before(JoinPoint joinPoint) {
+
+        // 실행되는 메서드 이름 가져오기
+<span class="nc" id="L37">        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();</span>
+<span class="nc" id="L38">        Method method = methodSignature.getMethod();</span>
+<span class="nc" id="L39">        System.out.println(method.getName());</span>
+
+<span class="nc" id="L41">        Object[] args = joinPoint.getArgs(); // 메서드에 들어가고있는 arguments 즉 매개변수들의 배열</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (Object obj : args ) {</span>
+<span class="nc" id="L43">            System.out.println(&quot;type : &quot; + obj.getClass().getSimpleName());</span>
+<span class="nc" id="L44">            System.out.println(&quot;value : &quot; + obj);</span>
+        }
+<span class="nc" id="L46">    }</span>
+
+    @AfterReturning(value = &quot;cut()&quot;, returning = &quot;returnObj&quot;) // cut메서드가 정상 실행되고 난 후, 리턴값을 알려줘.
+    public void afterReturn(JoinPoint joinPoint, Object returnObj) {
+<span class="nc" id="L50">        System.out.println(&quot;return obj&quot;);</span>
+<span class="nc" id="L51">        System.out.println(returnObj);</span>
+<span class="nc" id="L52">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

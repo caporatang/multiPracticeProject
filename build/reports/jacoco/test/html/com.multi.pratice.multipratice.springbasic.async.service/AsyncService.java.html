@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AsyncService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.async.service</a> &gt; <span class="el_source">AsyncService.java</span></div><h1>AsyncService.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.async.service;
+
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.concurrent.CompletableFuture;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.async.service
+ * fileName : AsyncService
+ * author : taeil
+ * date : 2023/03/01
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/03/01        taeil                   최초생성
+ */
+@Service
+<span class="fc" id="L23">@Slf4j</span>
+<span class="fc" id="L24">public class AsyncService {</span>
+
+    // Async로 결과를 리턴해보자 (CompletableFuture 사용)
+    @Async(&quot;async-thread&quot;) //-&gt; Config에서 정의한 bean의 이름
+    public CompletableFuture run() {
+
+        // 예제처럼 다른 스레드에서 돌린 후, 결과를 반환하기보다
+        // CompletableFuture API를 다수 한꺼번에 실행해서 그것에 대한 결과를 join시켜 받을때 사용한다.
+
+        // 현재 예제는 다른 스레드에서 돌린다고해도 어쨌든 결과는 async hello라는 스트링이 반환되기 때문에 적절하지 않은것임
+<span class="nc" id="L34">        return new AsyncResult(hello()).completable();</span>
+    }
+
+    // @Async
+    public String hello() {
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (int i = 0; i &lt; 10; i++){</span>
+            try {
+<span class="nc" id="L41">              Thread.sleep(2000);</span>
+              // method end가 호출되고 난 후 다른 task에서 출력된다.
+<span class="nc" id="L43">              log.info(&quot;thread sleep&quot;);</span>
+<span class="nc" id="L44">            } catch (InterruptedException e) {</span>
+<span class="nc" id="L45">                e.printStackTrace();</span>
+<span class="nc" id="L46">            }</span>
+        }
+<span class="nc" id="L48">        return &quot;async hello&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

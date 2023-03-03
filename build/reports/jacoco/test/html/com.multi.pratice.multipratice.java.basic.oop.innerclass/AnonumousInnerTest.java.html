@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AnonumousInnerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.java.basic.oop.innerclass</a> &gt; <span class="el_source">AnonumousInnerTest.java</span></div><h1>AnonumousInnerTest.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.java.basic.oop.innerclass;
+
+/**
+ * packageName : com.multi.pratice.multipratice.java.basic.oop.innerclass
+ * fileName : AnonumousInnerTest
+ * author : taeil
+ * date : 2023/02/13
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/13        taeil                   최초생성
+ */
+
+<span class="nc" id="L15">class Outer2 {</span>
+<span class="nc" id="L16">    int outNum = 100;</span>
+<span class="nc" id="L17">    static int sNum = 200;</span>
+
+    // class를 스레드화 할때 사용하는 메서드
+    // 지역변수와 매개변수는 메서드가 호출될때 stack 메모리에 생성이 된다.
+    Runnable getRunnable(int i) {
+        // 지역변수 (local변수)
+<span class="nc" id="L23">        int num = 10;</span>
+
+<span class="nc" id="L25">        class MyRunnable implements Runnable{</span>
+            // local inner class
+            // 맴버변수
+<span class="nc" id="L28">            int localNum = 1000;</span>
+
+            @Override
+            public void run() {
+                // 위에서 선언한 i 와 num의 값을 메서드 안에서 바꿀려고 하면 에러가 발생된다.
+                // -&gt; 위에 적어놨듯이 i 와 num은 stack메모리에 생성이 된다
+                // -&gt; stack메모리에 생성이 되기 때문에 메서드가 호출되면 메모리상에서 없어진다.
+                // -&gt; 메서드는 다시 호출될 여지가 있기 떄문에 값을 바꾸지 못하고 final로 선언되는것이다.
+
+                // final로 직접적으로 선언을 하지 않아도 컴파일러가 final로 컴파일해서 처리한다.
+                // 메서드 호출이 끝난다고 해도 stack메모리처럼 사라지는게 아니라 final로 처리를 하기 때문에
+                // 상수화되어 상수메모리(constant area)에 메모리가 잡히게 된다.. 개념이 어렵다...
+
+<span class="nc" id="L41">                System.out.println(&quot;i = &quot; + i);</span>
+<span class="nc" id="L42">                System.out.println(&quot;num = &quot; + num);</span>
+<span class="nc" id="L43">                System.out.println(&quot;localNum = &quot; + localNum);</span>
+
+<span class="nc" id="L45">                System.out.println(&quot;outNum = &quot; + outNum +&quot; (외부 클래스 인스턴스 변수)&quot;);</span>
+<span class="nc" id="L46">                System.out.println(&quot;Ouuter.sNum = &quot; + Outer2.sNum + &quot; (외부 클래스 정적 변수&quot;);</span>
+
+<span class="nc" id="L48">            }</span>
+        }
+<span class="nc" id="L50">        return new MyRunnable();</span>
+    }// getRunnable end
+
+    Runnable getRunnable2(int i) {
+            // 지역변수 (local변수)
+<span class="nc" id="L55">            int num = 10;</span>
+
+            // 로컬 이너 클래스와 다르게, 어차피 클래스 이름을 호출하는곳이
+            // 같은 클래스에서밖에 없으므로, 그냥 바로 Runnable객체를 리턴 -&gt; 이게 어나니머스 이너 클래스이다
+            // 지역 이너클래스와 동일하게 매개변수와 지역변수는 값을 바꿀수없다.
+<span class="nc" id="L60">            return new Runnable() {</span>
+<span class="nc" id="L61">                int localNum = 1000;</span>
+                @Override
+                public void run() {
+<span class="nc" id="L64">                    System.out.println(&quot;i = &quot; + i);</span>
+<span class="nc" id="L65">                    System.out.println(&quot;num = &quot; + num);</span>
+<span class="nc" id="L66">                    System.out.println(&quot;localNum = &quot; + localNum);</span>
+
+<span class="nc" id="L68">                    System.out.println(&quot;outNum = &quot; + outNum + &quot; (외부 클래스 인스턴스 변수)&quot;);</span>
+<span class="nc" id="L69">                    System.out.println(&quot;Ouuter.sNum = &quot; + Outer2.sNum + &quot; (외부 클래스 정적 변수&quot;);</span>
+
+<span class="nc" id="L71">                }</span>
+            };
+    }
+
+    // 어나니머스 이너 클래스 사용방법 2
+<span class="nc" id="L76">    Runnable runnable = new Runnable() {</span>
+        // 객체 생성과 동시에 오버라이딩
+        @Override
+        public void run() {
+<span class="nc" id="L80">            System.out.println(&quot;Runnable class&quot;);</span>
+<span class="nc" id="L81">        }</span>
+    };
+
+}
+
+<span class="nc" id="L86">public class AnonumousInnerTest {</span>
+    public static void main(String[] args) {
+        // 지역 내부 클래스를 사용해보자
+<span class="nc" id="L89">        Outer2 out = new Outer2();</span>
+<span class="nc" id="L90">        Runnable runner = out.getRunnable(100);</span>
+<span class="nc" id="L91">        runner.run();</span>
+
+        // 어나니머스 이너클래스 사용방법 2
+<span class="nc" id="L94">        out.runnable.run();</span>
+<span class="nc" id="L95">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

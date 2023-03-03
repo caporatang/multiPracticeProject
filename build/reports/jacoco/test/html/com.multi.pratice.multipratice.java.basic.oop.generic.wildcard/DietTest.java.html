@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DietTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.java.basic.oop.generic.wildcard</a> &gt; <span class="el_source">DietTest.java</span></div><h1>DietTest.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.java.basic.oop.generic.wildcard;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * packageName : com.multi.pratice.multipratice.java.basic.oop.generic.wildcard
+ * fileName : DrinkTest
+ * author : taeil
+ * date : 2023/02/15
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/15        taeil                   최초생성
+ */
+<span class="nc" id="L17">public class DietTest {</span>
+    public static void main(String[] args) {
+        // 다이어트를 상속받은 클래스들을 접근할수있게해줌 ! --&gt; 하위클래스 타입 접근 가능
+<span class="nc" id="L20">        ArrayList&lt;? extends Diet&gt; sweetPotatoes = new ArrayList&lt;SweetPotato&gt;();</span>
+<span class="nc" id="L21">        ArrayList&lt;? extends Diet&gt; proteins = new ArrayList&lt;Protein&gt;();</span>
+<span class="nc" id="L22">        ArrayList&lt;? extends Diet&gt; diet = new ArrayList&lt;Diet&gt;();</span>
+
+        // 다이어트 상위클래스들의 타입으로 접근 가능
+<span class="nc" id="L25">        ArrayList&lt;? super Diet&gt; superHeavy = new ArrayList&lt;Object&gt;();</span>
+<span class="nc" id="L26">        ArrayList&lt;? super Diet&gt; superHeavy2 = new ArrayList&lt;Heavy&gt;();</span>
+<span class="nc" id="L27">        ArrayList&lt;? super Diet&gt; superHeavy3 = new ArrayList&lt;Diet&gt;();</span>
+
+
+<span class="nc" id="L30">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

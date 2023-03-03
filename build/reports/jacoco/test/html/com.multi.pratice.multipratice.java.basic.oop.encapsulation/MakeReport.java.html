@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MakeReport.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.java.basic.oop.encapsulation</a> &gt; <span class="el_source">MakeReport.java</span></div><h1>MakeReport.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.java.basic.oop.encapsulation;
+
+/**
+ * packageName : com.multi.pratice.multipratice.java.basic.oop.incapsulation
+ * fileName : MakeReport
+ * author : taeil
+ * date : 2023/01/17
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/01/17        taeil                   최초생성
+ */
+<span class="nc" id="L14">public class MakeReport {</span>
+
+<span class="nc" id="L16">    StringBuffer buffer = new StringBuffer();</span>
+
+<span class="nc" id="L18">    private String line = &quot;===================================\n&quot;;</span>
+<span class="nc" id="L19">    private String title = &quot;  이름\t    주소  \t\t  전화번호    \n&quot;;</span>
+
+    private void makeHeader()
+    {
+<span class="nc" id="L23">        buffer.append(line);</span>
+<span class="nc" id="L24">        buffer.append(title);</span>
+<span class="nc" id="L25">        buffer.append(line);</span>
+<span class="nc" id="L26">    }</span>
+    private void generateBody()
+    {
+<span class="nc" id="L29">        buffer.append(&quot;James \t&quot;);</span>
+<span class="nc" id="L30">        buffer.append(&quot;Seoul Korea \t&quot;);</span>
+<span class="nc" id="L31">        buffer.append(&quot;010-2222-3333\n&quot;);</span>
+
+<span class="nc" id="L33">        buffer.append(&quot;Toman \t&quot;);</span>
+<span class="nc" id="L34">        buffer.append(&quot;NewYork \t&quot;);</span>
+<span class="nc" id="L35">        buffer.append(&quot;010-7777-0987\n&quot;);</span>
+<span class="nc" id="L36">    }</span>
+
+    private void makeFooter()
+    {
+<span class="nc" id="L40">        buffer.append(line);</span>
+<span class="nc" id="L41">    }</span>
+
+    public String getReport() {
+        // 클라이언트에게 제공되는건 이 메서드 하나임
+<span class="nc" id="L45">        makeHeader();</span>
+<span class="nc" id="L46">        generateBody();</span>
+<span class="nc" id="L47">        makeFooter();</span>
+<span class="nc" id="L48">        return buffer.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

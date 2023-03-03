@@ -19,4 +19,5 @@ public class JUnit {
     // -> Java기반의 단위 테스트를 위한 프레임워크
     // -> Annotation 기반으로 테스트를 지원, Assert를 통하여,  ( 예상, 실제 ) 를 통해 검증
 
+    // 코드 커버리지는 Jacoco를 활용
 }

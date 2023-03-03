@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MvcConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.interceptor.config</a> &gt; <span class="el_source">MvcConfig.java</span></div><h1>MvcConfig.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.interceptor.config;
+
+import com.multi.pratice.multipratice.springbasic.interceptor.interceptorr.AuthInterceptor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.interceptor.config
+ * fileName : MvcConfig
+ * author : taeil
+ * date : 2023/02/28
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/28        taeil                   최초생성
+ */
+@Configuration
+<span class="fc" id="L21">@RequiredArgsConstructor</span>
+public class MvcConfig implements WebMvcConfigurer {
+    // 만든 AuthInterceptor를 '등록'해서 사용해보자
+    private final AuthInterceptor authInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // /api/private/*에 대해서만 인터셉터를 적용하고 검사할거야
+<span class="fc" id="L29">        registry.addInterceptor(authInterceptor).addPathPatterns(&quot;/api/private/*&quot;);</span>
+<span class="fc" id="L30">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ApiTestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">multiPratice</a> &gt; <a href="index.source.html" class="el_package">com.multi.pratice.multipratice.springbasic.exception.controller</a> &gt; <span class="el_source">ApiTestController.java</span></div><h1>ApiTestController.java</h1><pre class="source lang-java linenums">package com.multi.pratice.multipratice.springbasic.exception.controller;
+
+import com.multi.pratice.multipratice.springbasic.exception.dto.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+
+/**
+ * packageName : com.multi.pratice.multipratice.springbasic.exception.controller
+ * fileName : ApiController
+ * author : taeil
+ * date : 2023/02/27
+ * description :
+ * =======================================================
+ * DATE          AUTHOR                      NOTE
+ * -------------------------------------------------------
+ * 2023/02/27        taeil                   최초생성
+ */
+@RestController
+@RequestMapping(&quot;/api&quot;)
+<span class="fc" id="L24">public class ApiTestController {</span>
+
+    @GetMapping(&quot;&quot;)
+    public User get(@RequestParam(required = false) String name,
+                    @RequestParam(required = false) Integer age)
+    {
+<span class="nc" id="L30">        User user = new User();</span>
+<span class="nc" id="L31">        user.setName(name);</span>
+<span class="nc" id="L32">        user.setAge(age);</span>
+
+        // NPE 발생
+<span class="nc" id="L35">        int a = 10 + age;</span>
+
+<span class="nc" id="L37">        return user;</span>
+    }
+
+    @PostMapping(&quot;&quot;)
+    public User post(@Valid @RequestBody User user) {
+<span class="nc" id="L42">        System.out.println(user);</span>
+
+<span class="nc" id="L44">        return user;</span>
+    }
+
+    // 컨트롤러 안에 직접 작성 시, 해당 클래스 내부에서만 발생되는 exception에만 관여함
+    // @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    // public ResponseEntity methodArgumentNotValidException(MethodArgumentNotValidException e) {
+
+        // return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    // }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
