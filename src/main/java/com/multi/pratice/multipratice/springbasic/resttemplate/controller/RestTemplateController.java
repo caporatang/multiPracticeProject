@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.springbasic.resttemplate.controller;
 
+import com.multi.pratice.multipratice.springbasic.resttemplate.dto.UserResponse;
 import com.multi.pratice.multipratice.springbasic.resttemplate.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,7 @@ public class RestTemplateController {
 
 
     @GetMapping("/hello")
-    public String getHello() {
+    public UserResponse getHello() {
         return restTemplateService.hello();
     }
 
