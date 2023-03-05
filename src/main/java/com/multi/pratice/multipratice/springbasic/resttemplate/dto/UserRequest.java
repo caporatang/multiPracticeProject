@@ -1,8 +1,6 @@
 package com.multi.pratice.multipratice.springbasic.resttemplate.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * packageName : com.multi.pratice.multipratice.springbasic.resttemplate.dto
@@ -15,9 +13,9 @@ import lombok.ToString;
  * -------------------------------------------------------
  * 2023/03/03        taeil                   최초생성
  */
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRequest {
 
     private String name;

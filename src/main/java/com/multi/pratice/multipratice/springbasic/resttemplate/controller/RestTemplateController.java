@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.springbasic.resttemplate.controller;
 
+import com.multi.pratice.multipratice.springbasic.resttemplate.dto.Req;
 import com.multi.pratice.multipratice.springbasic.resttemplate.dto.UserResponse;
 import com.multi.pratice.multipratice.springbasic.resttemplate.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,17 @@ public class RestTemplateController {
     @PostMapping("/posthello")
     public UserResponse getPostHello() {
         return restTemplateService.post();
+    }
+
+    @PostMapping("/exchange")
+    public UserResponse exchangeTest() {
+        System.out.println("exchageController");
+        return restTemplateService.exchange();
+    }
+
+    @PostMapping("/genericexchange")
+    public Req<UserResponse> genericExchange() {
+        return restTemplateService.genericExchange();
     }
 
 }

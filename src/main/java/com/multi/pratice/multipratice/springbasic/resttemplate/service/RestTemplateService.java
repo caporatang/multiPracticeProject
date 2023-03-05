@@ -1,12 +1,17 @@
 package com.multi.pratice.multipratice.springbasic.resttemplate.service;
 
+import com.multi.pratice.multipratice.springbasic.resttemplate.dto.Req;
 import com.multi.pratice.multipratice.springbasic.resttemplate.dto.UserRequest;
 import com.multi.pratice.multipratice.springbasic.resttemplate.dto.UserResponse;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.lang.reflect.ParameterizedType;
 import java.net.URI;
 
 /**
@@ -86,6 +91,73 @@ public class RestTemplateService {
 
         return response.getBody();
     }
+
+    // header에 여러가지를 추가할때는 exchage를 사용
+    public UserResponse exchange() {
+        URI uri =  UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/user/{userId}/name/{userName}")
+                .encode()
+                .build()
+                .expand("100", "taeil")
+                .toUri();
+
+        UserRequest req = new UserRequest();
+        req.setName("taeil2");
+        req.setAge(10);
+
+        // requset entity 만들기
+        RequestEntity<UserRequest> requestEntity = RequestEntity
+                .post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("X-authorization", "abcd")
+                .header("custom-header", "fffff")
+                .body(req); // 위에서 세팅한 데이터
+
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<UserResponse> response = restTemplate.exchange(requestEntity, UserResponse.class);
+
+        return response.getBody();
+    }
+
+    public Req<UserResponse> genericExchange() {
+
+        URI uri =  UriComponentsBuilder
+                .fromUriString("http://localhost:9090")
+                .path("/api/server/json/post/user/{userId}/name/{userName}")
+                .encode()
+                .build()
+                .expand("100", "taeil")
+                .toUri();
+
+        UserRequest userRequest = new UserRequest();
+        userRequest.setName("taeil2");
+        userRequest.setAge(10);
+
+        Req<UserRequest> req = new Req<>();
+        req.setHeader (
+                new Req.Header()
+        );
+        req.setResBody (
+                userRequest
+        );
+
+        // requset entity 만들기
+        RequestEntity<Req<UserRequest>> requestEntity = RequestEntity
+                .post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header("X-authorization", "abcd")
+                .header("custom-header", "fffff")
+                .body(req); // 위에서 세팅한 데이터
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<Req<UserResponse>> response
+                = restTemplate.exchange(requestEntity, new ParameterizedTypeReference<>(){});
+
+        return response.getBody();
+    }
+
 
 
 }
