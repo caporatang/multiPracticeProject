@@ -19,8 +19,8 @@ class MemberTest {
         user.setUpdateAt(LocalDateTime.now());
         System.out.println(">>>> @@@  " + user);
 
-        Member user1 = new Member(null, "martin", "capo@naver.com", LocalDateTime.now(), LocalDateTime.now());
-        Member user2 = new Member("martin", "capo@naver.com");
+//        Member user1 = new Member(null, "martin", "capo@naver.com", LocalDateTime.now(), LocalDateTime.now());
+//        Member user2 = new Member("martin", "capo@naver.com");
 
 
 

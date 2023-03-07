@@ -1,5 +1,7 @@
 package com.multi.pratice.multipratice.jpa.repository;
 
+import com.multi.pratice.multipratice.jpa.domain.Gender;
+import com.multi.pratice.multipratice.jpa.domain.Member;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -205,9 +207,18 @@ class MemberRepositoryTest {
         // 페이지 값은 zero베이스 값이다.
         System.out.println("findByNameWithPaging : " + memberRepository.findByName("taeil", PageRequest.of(1,1, Sort.by("id"))).getContent());
         System.out.println("findByNameWithPagingGetTotalElements : " + memberRepository.findByName("taeil", PageRequest.of(1,1, Sort.by("id"))).getTotalElements());
+    }
 
+    @Test
+    void enumTest() {
+        Member member = memberRepository.findById(1L).orElseThrow(RuntimeException::new);
+        member.setGender(Gender.MALE);
 
+        memberRepository.save(member);
 
+        memberRepository.findAll().forEach(System.out::println);
+
+        System.out.println(memberRepository.findRowRecord().get("gender"));
     }
 
 
