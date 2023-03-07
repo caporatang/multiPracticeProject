@@ -13,15 +13,11 @@ spring:
     hibernate:
       ddl-auto: none
     #  SQL auto Create allow - use - true, always,  notUse - false, never
-    defer-datasource-initialization: false
+    defer-datasource-initialization: true
     database: h2
   sql:
     init:
-      mode: never
-logging:
-  level:
-    com.example.makeproject: debug
-
+      mode: always
 ---
 #  H2
 spring:
@@ -37,7 +33,7 @@ spring:
     #  H2
     #  DB
   datasource:
-    url: jdbc:h2:tcp://localhost/~/make
+    url: jdbc:h2:tcp://localhost/~/multi
     driver-class-name: org.h2.Driver
     username: sa
   batch:
@@ -58,8 +54,8 @@ spring:
 #      enabled: true
 #  thymeleaf:
 #    cache: true
-      #  MySQL
-    #  DB
+#  MySQL
+#  DB
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/test?useSSL=false
 #    driver-class-name: com.mysql.cj.jdbc.Driver
