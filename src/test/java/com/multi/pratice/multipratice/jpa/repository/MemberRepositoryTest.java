@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
+import java.awt.*;
 import java.time.LocalDateTime;
 
 @SpringBootTest
@@ -222,7 +223,45 @@ class MemberRepositoryTest {
     }
 
 
+    @Test
+    void listenerTest() {
+        Member member = new Member();
+        member.setEmail("caporatang@naver.com");
+        member.setName("taeil");
 
+        memberRepository.save(member);
 
+        Member member2 = memberRepository.findById(6L).orElseThrow(RuntimeException::new);
+        member2.setName("taeil2");
 
+        memberRepository.save(member2);
+        memberRepository.deleteById(6L);
+    }
+
+    @Test
+    void prePersistTest() {
+
+        Member member = new Member();
+        member.setEmail("caporatang@naver.co.kr");
+        member.setName("test222");
+
+        // MemberEntity에 @PrePersist 사용
+        // member.setCreatedAt(LocalDateTime.now());
+        // member.setUpdateAt(LocalDateTime.now());
+
+        memberRepository.save(member);
+        System.out.println(memberRepository.findByEmail("caporatang@naver.co.kr"));
+    }
+
+    @Test
+    void preUpdateTest() {
+        Member member = memberRepository.findById(1L).orElseThrow(RuntimeException::new);
+        System.out.println("as-is : " + member);
+
+        member.setName("updateTaeil2");
+        memberRepository.save(member);
+
+        //업데이트 된 후 db에 있는 값을 가져와보자 -> 업데이트 시간을 가져오자
+        System.out.println("to-be : " + memberRepository.findAll().get(0));
+    }
 }

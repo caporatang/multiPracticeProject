@@ -16,7 +16,7 @@ class MemberTest {
         user.setEmail("capo@naver.com");
         user.setName("김태일");
         user.setCreatedAt(LocalDateTime.now());
-        user.setUpdateAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
         System.out.println(">>>> @@@  " + user);
 
 //        Member user1 = new Member(null, "martin", "capo@naver.com", LocalDateTime.now(), LocalDateTime.now());
