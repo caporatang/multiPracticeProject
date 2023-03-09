@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 
 public class MyEntityListener {
     // 공통적으로 사용되는 부분을 리스너로 만들어서, 반복적인 코딩을 줄일수있음
-
+    // spring에서 제공하는 기본적인 Auditing을 사용해도 간단하게 할수있음 --> @CreatedDate, LastModifiedDate
+    
     @PrePersist
     public void prePersist(Object o) {
         if (o instanceof Auditable) {
@@ -33,6 +34,5 @@ public class MyEntityListener {
             ((Auditable) o).setUpdatedAt(LocalDateTime.now());
         }
     }
-
 
 }

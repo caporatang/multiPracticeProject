@@ -2,6 +2,9 @@ package com.multi.pratice.multipratice.jpa.domain;
 
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity // --> jpa에서 관리하는 entitiy 클래스임을 명시  // name으로 인덱스 설정(잘 사용하지 않음)           // 테이블에 유니크 설정(제약사항)
 //@Table(name="member", indexes = {@Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})// catalog, name, schema를 지정할수있음 따로 설정하지 않으면 디폴트로 설정된다.
-@EntityListeners(value = MyEntityListener.class)
+@EntityListeners(value = { AuditingEntityListener.class, MemberEntityListener.class } )
 public class Member implements Auditable{
     // 엔티티는 모두 컬럼으로 표현 해야함
 
@@ -37,8 +40,11 @@ public class Member implements Auditable{
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @Column
+    @Column(updatable = false)
+    @CreatedDate
     private LocalDateTime createdAt;
+
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
     // @OneToMany(fetch = FetchType.EAGER)

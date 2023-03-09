@@ -18,6 +18,9 @@ class MemberRepositoryTest {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private MemberHistoryRepository memberHistoryRepository;
+
     @Test
     void crud() {
 //        memberRepository.save(new Member());
@@ -264,4 +267,19 @@ class MemberRepositoryTest {
         //업데이트 된 후 db에 있는 값을 가져와보자 -> 업데이트 시간을 가져오자
         System.out.println("to-be : " + memberRepository.findAll().get(0));
     }
+
+    @Test
+    void memberHistory() {
+        Member member = new Member();
+        member.setEmail("historyTest@naver.com");
+        member.setName("taeil");
+
+        memberRepository.save(member);
+
+        member.setName("taeil-new");
+        memberRepository.save(member);
+
+        memberHistoryRepository.findAll().forEach(System.out::println);
+    }
+
 }

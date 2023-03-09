@@ -1,6 +1,7 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
 import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@EntityListeners(value = MyEntityListener.class)
+@EntityListeners(value = AuditingEntityListener.class)
 public class Book implements Auditable{
     @Id
     @GeneratedValue
