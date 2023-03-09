@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
+import com.multi.pratice.multipratice.jpa.listener.Auditable;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -26,9 +27,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
-@EntityListeners(value = AuditingEntityListener.class)
-public class MemberHistory implements Auditable{
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+//@EntityListeners(value = AuditingEntityListener.class)
+public class MemberHistory extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue
     private Long id;
@@ -39,8 +41,8 @@ public class MemberHistory implements Auditable{
 
     private String email;
 
-    @CreatedDate
-    private LocalDateTime createdAt;
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
+//    @CreatedDate
+//    private LocalDateTime createdAt;
+//    @LastModifiedDate
+//    private LocalDateTime updatedAt;
 }

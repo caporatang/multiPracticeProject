@@ -1,6 +1,9 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
+import com.multi.pratice.multipratice.jpa.listener.Auditable;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -22,17 +25,19 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
-@EntityListeners(value = AuditingEntityListener.class)
-public class Book implements Auditable{
+//@EntityListeners(value = AuditingEntityListener.class)
+public class Book extends BaseEntity implements Auditable {
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
     private String author;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+//    @CreatedDate
+//    private LocalDateTime createdAt;
+//    @LastModifiedDate
+//    private LocalDateTime updatedAt;
 
 
     // @PrePersist
