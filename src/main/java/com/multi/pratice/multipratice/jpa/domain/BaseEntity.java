@@ -1,5 +1,6 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
+import com.multi.pratice.multipratice.jpa.listener.Auditable;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -29,7 +30,7 @@ import java.time.LocalDateTime;
 // -> 해당 클래스의 필드를 상속받는 entity의 컬럼으로 포함하겠다는 의미
 // -> 다른 클래스에서는 createdAt, updatedAt은 컬럼으로 사용하지 않아도 된다.
 @MappedSuperclass
-public class BaseEntity {
+public class BaseEntity implements Auditable {
 
     @CreatedDate
     private LocalDateTime createdAt;
