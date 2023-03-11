@@ -10,6 +10,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.security.Identity;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * packageName : com.multi.pratice.multipratice.jpa.domain
@@ -32,7 +34,6 @@ import java.time.LocalDateTime;
 public class Book extends BaseEntity {
 
     @Id
-    // -> mysql, maria autoincrement
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -42,13 +43,19 @@ public class Book extends BaseEntity {
 
     private String category;
 
-    private Long publisherId;
+    // private Long publisherId;
 
-    // 속성에 따른 쿼리 변경을 숙지해야한다, 로그를 잘 보자 ........
-    // mappedBy 설정시, 연관키를 해당 테이블에서는 더 이상 갖지 않게된다.
-    // 해당 케이스처럼 book으로 mappedBy 설정시, stackOverFlow에러가 발생된다.
-    // --> Entity 릴레이션을 사용하는 경우에 ToString메서드가 순환참조가 걸리게된다.
-    @ToString.Exclude  // -> 특별한 케이스가 아니라면 단방향으로 걸던지, ToString 제외가 필요하다
+    @ToString.Exclude
     @OneToOne(mappedBy = "book")
     private BookReviewInfo bookReviewInfo;
+
+    @OneToMany
+    @JoinColumn(name = "book_id") // 까먹지 말자 중간 테이블 방지
+    @ToString.Exclude // stackOverFlow 방지
+    private List<Review> reviews = new ArrayList<>();
+
+    @ManyToOne
+    @ToString.Exclude
+    private Publisher publisher;
+
 }

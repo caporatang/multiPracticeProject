@@ -300,7 +300,7 @@ class MemberRepositoryTest {
         memberRepository.save(member);
 
         // 리스너를 활용하여 히스토리 테이블에도 자동으로 저장되고있음.
-        // memberHistoryRepository.findAll().forEach(System.out::println);
+        memberHistoryRepository.findAll().forEach(System.out::println);
 
         // List<MemberHistory> result = memberHistoryRepository.findByUserId(
         //        memberRepository.findByEmail("daniel@naver.com").getId());
@@ -309,6 +309,12 @@ class MemberRepositoryTest {
         List<MemberHistory> result = memberRepository.findByEmail("daniel@naver.com").getMemberHistories();
 
         result.forEach(System.out::println);
+
+        System.out.println("MemberHistory.getMember() : " + memberHistoryRepository.findAll().get(0).getMember());
+
     }
+
+
+
 
 }

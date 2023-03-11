@@ -39,8 +39,12 @@ public class Member extends BaseEntity {
     private Gender gender;
 
     @OneToMany(fetch = FetchType.EAGER)
-    // -> 중간에 이어주는 매핑 테이블이 생기는 경우에, 컬럼으로 조인하겠다를 명시하는 어노테이션
-    // insertable, updatable --> member테이블에서는 memberHistory 테이블에 대해 인서트, 업데이트를 막음
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private List<MemberHistory> memberHistories = new ArrayList<>(); // -> 네이밍은 복수형을 사용, nullPoint를 방지하기 위한 ArrayList객체 생성
+    @JoinColumn(name = "member_id", insertable = false, updatable = false)
+    @ToString.Exclude
+    private List<MemberHistory> memberHistories = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "member_id")
+    @ToString.Exclude
+    private List<Review> reviews = new ArrayList<>();
 }

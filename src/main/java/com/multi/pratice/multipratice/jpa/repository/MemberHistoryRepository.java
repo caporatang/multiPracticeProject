@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MemberHistoryRepository extends JpaRepository<MemberHistory, Long> {
 
-    List<MemberHistory> findByUserId(Long memberId);
+    // List<MemberHistory> findByUserId(Long memberId);
 }
