@@ -2,6 +2,7 @@ package com.multi.pratice.multipratice.jpa.repository;
 
 import com.multi.pratice.multipratice.jpa.domain.Gender;
 import com.multi.pratice.multipratice.jpa.domain.Member;
+import com.multi.pratice.multipratice.jpa.domain.MemberHistory;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.data.domain.Sort;
 
 import java.awt.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootTest
 class MemberRepositoryTest {
@@ -280,6 +282,33 @@ class MemberRepositoryTest {
         memberRepository.save(member);
 
         memberHistoryRepository.findAll().forEach(System.out::println);
+    }
+
+    @Test
+    void userRelationTest() {
+        Member member = new Member();
+        member.setName("david");
+        member.setEmail("capoMember@naver.com");
+        member.setGender(Gender.MALE);
+
+        memberRepository.save(member);
+
+        member.setName("daniel");
+        memberRepository.save(member);
+
+        member.setEmail("daniel@naver.com");
+        memberRepository.save(member);
+
+        // 리스너를 활용하여 히스토리 테이블에도 자동으로 저장되고있음.
+        // memberHistoryRepository.findAll().forEach(System.out::println);
+
+        // List<MemberHistory> result = memberHistoryRepository.findByUserId(
+        //        memberRepository.findByEmail("daniel@naver.com").getId());
+
+        // @OneToMany 사용시, member테이블을 조회하면 oneToMany 관계를 가진 테이블을 간단하게 조회할수있음
+        List<MemberHistory> result = memberRepository.findByEmail("daniel@naver.com").getMemberHistories();
+
+        result.forEach(System.out::println);
     }
 
 }

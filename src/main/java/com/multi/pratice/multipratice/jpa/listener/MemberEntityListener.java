@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
@@ -26,7 +27,8 @@ import javax.persistence.PreUpdate;
  */
 public class MemberEntityListener {
 
-    @PrePersist
+    //@PrePersist
+    @PostPersist
     @PreUpdate
     public void prePersistAndPreUpdate(Object o) {
         MemberHistoryRepository memberHistoryRepository = BeanUtils.getBean(MemberHistoryRepository.class);
