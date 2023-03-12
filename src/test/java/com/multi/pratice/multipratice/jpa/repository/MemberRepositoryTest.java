@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 class MemberRepositoryTest {
     // 스프링 컨텍스트를 로딩하여 테스트에 활용하겠다.  // testsetsetset
     @Autowired
