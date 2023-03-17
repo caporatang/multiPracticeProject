@@ -27,6 +27,9 @@ dependencies {
     implementation 'com.h2database:h2:'
 
 
+    implementation("com.auth0:java-jwt:3.16.0") // -> oauth0
+    implementation("io.jsonwebtoken:jjwt:0.9.1") // --> okta jjwt
+
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
