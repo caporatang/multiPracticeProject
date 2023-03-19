@@ -35,7 +35,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Member findSomethingByEmail(String email);
 
-    List<Member> findByMemberId(String memberId);
+    //List<Member> findByMemberId(String memberId);
 
 
     //잘못된 메서드

@@ -55,12 +55,13 @@ spring:
 
       # h2DB를 사용할때 따로 옵션 지정을 하지 않아도 사용할수있는 이유
       # -> 임베디드 데이터베이스는 기본적으로 create-drop으로 설정되어 실행되기 때문임
-      ddl-auto: create-drop
+      ddl-auto: create
     defer-datasource-initialization: true
+    database: mysql
   sql:
     init:
       mode: always
   datasource:
     url: jdbc:mysql://localhost:3306/book_manager
     username: root
-    password:
+    password: password1
