@@ -18,10 +18,7 @@ public class AddTest {
         // 람다를 사용해서 인터페이스에서 정의한 add를 구현
         //  Add addL = (x, y) -> {return x + y;};
         Add addL = (x, y) -> x+y;
-
         System.out.println(addL.add(2,3));
-
-
 
     }
 }
