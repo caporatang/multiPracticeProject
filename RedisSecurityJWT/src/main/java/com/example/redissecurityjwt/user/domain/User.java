@@ -7,6 +7,7 @@ import lombok.ToString;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * packageName : com.example.redissecurityjwt.user.domain
@@ -33,4 +34,12 @@ public class User extends BaseTimeEntity {
     private Long id;
     private String email;
     private String password;
+
+    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "id"))
+    @JoinColumn(name = "id")
+    @ToString.Exclude
+    private Set<UserRole> authorities;
+
+
 }

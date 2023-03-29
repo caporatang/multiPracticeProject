@@ -18,6 +18,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserDTO {
     private Long id;
     private String email;

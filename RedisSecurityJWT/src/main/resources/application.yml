@@ -10,13 +10,13 @@ spring:
     generate-ddl: true
 
     hibernate:
-      ddl-auto: create-drop
-    defer-datasource-initialization: true
+      ddl-auto: create
+    defer-datasource-initialization: false
     # mysql
     database: h2
   sql:
     init:
-      mode: always
+      mode: never
   datasource:
       url: jdbc:h2:tcp://localhost/~/redis
       driver-class-name: org.h2.Driver
