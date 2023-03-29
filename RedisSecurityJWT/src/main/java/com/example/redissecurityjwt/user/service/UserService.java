@@ -32,6 +32,8 @@ public class UserService {
     private final UserJpaRepository userRepository;
     private final UserRoleJpaRepository userRoleRepository;
     private final ModelMapper modelMapper;
+    private final UserRoleService userRoleService;
+
     public String testGreeting() {
         return "그리팅 메서드를 호출";
     }
@@ -44,16 +46,13 @@ public class UserService {
         user.setPassword(pwd);
 
         User saveUser = userRepository.save(user);
-        addAuthority(saveUser.getId(), "ROLE_USER");
+
+        if(saveUser.getId() == 3) {
+            // ROLE_ADMIN은 3번 유저로 고정
+            userRoleService.addAuthority(saveUser.getId(), "ROLE_ADMIN");
+            return saveUser.getId();
+        }
+        userRoleService.addAuthority(saveUser.getId(), "ROLE_USER");
         return saveUser.getId();
     }
-
-    public void addAuthority(Long userId, String authority) {
-        userRepository.findById(userId).ifPresent(user -> {
-            UserRole newRole = new UserRole(user.getId(), authority);
-            userRoleRepository.save(newRole);
-        });
-    }
-
-
 }
