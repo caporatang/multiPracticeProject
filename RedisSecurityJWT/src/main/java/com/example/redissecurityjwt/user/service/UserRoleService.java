@@ -26,7 +26,7 @@ public class UserRoleService {
 
     public void addAuthority(Long userId, String authority) {
         userRepository.findById(userId).ifPresent(user -> {
-            UserRole newRole = new UserRole(user.getId(), authority);
+            UserRole newRole = new UserRole(user.getUserId(), authority);
             userRoleRepository.save(newRole);
         });
     }

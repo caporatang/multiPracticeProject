@@ -47,12 +47,12 @@ public class UserService {
 
         User saveUser = userRepository.save(user);
 
-        if(saveUser.getId() == 3) {
+        if(saveUser.getUserId() == 3) {
             // ROLE_ADMIN은 3번 유저로 고정
-            userRoleService.addAuthority(saveUser.getId(), "ROLE_ADMIN");
-            return saveUser.getId();
+            userRoleService.addAuthority(saveUser.getUserId(), "ROLE_ADMIN");
+            return saveUser.getUserId();
         }
-        userRoleService.addAuthority(saveUser.getId(), "ROLE_USER");
-        return saveUser.getId();
+        userRoleService.addAuthority(saveUser.getUserId(), "ROLE_USER");
+        return saveUser.getUserId();
     }
 }

@@ -44,19 +44,19 @@ public class JwtRequestTest {
         userJpaRepository.deleteAll();
         UserDTO userDTO1 = UserDTO.builder()
                 .email("taeil1@naver.com")
-                .id(1L)
+                .userId(1L)
                 .password("pass1")
                 .build();
 
         UserDTO userDTO2 = UserDTO.builder()
                 .email("taeil2@naver.com")
-                .id(2L)
+                .userId(2L)
                 .password("pass2")
                 .build();
 
         UserDTO userDTO3 = UserDTO.builder()
                 .email("taeil3@naver.com")
-                .id(3L)
+                .userId(3L)
                 .password("pass3")
                 .build();
         userService.insertMockData(userDTO1);

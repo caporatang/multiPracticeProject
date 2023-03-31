@@ -1,10 +1,9 @@
 package com.example.redissecurityjwt.config.security;
 
-import com.example.redissecurityjwt.config.jwt.JwtCheckFilter;
-import com.example.redissecurityjwt.config.jwt.JwtLoginFilter;
 import com.example.redissecurityjwt.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
@@ -15,6 +14,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -48,25 +48,32 @@ public class SecurityConfig {
     public DefaultSecurityFilterChain filterChain(HttpSecurity http) throws Exception
     {
 
-        JwtCheckFilter jwtCheckFilter = new JwtCheckFilter(userService, authenticationManager(authenticationConfiguration));
-        JwtLoginFilter jwtLoginFilter = new JwtLoginFilter(authenticationManager(authenticationConfiguration));
+//        JwtCheckFilter jwtCheckFilter = new JwtCheckFilter(userService, authenticationManager(authenticationConfiguration));
+//        JwtLoginFilter jwtLoginFilter = new JwtLoginFilter(authenticationManager(authenticationConfiguration));
 
          http.csrf().disable();
          http.authorizeHttpRequests()
                 .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/board/v1/**")).hasAnyRole("USER", "ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/user/v1/**")).hasAnyRole("USER", "ADMIN")
                 .requestMatchers(new AntPathRequestMatcher("/admin/v1/**")).hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .and()
-
-                 .csrf().disable()
-                 .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .formLogin().loginPage("/user/v1/login").permitAll()
+                 .formLogin(login -> login.loginPage("/user/v1/login").permitAll()
+                            .loginProcessingUrl("/login").permitAll()
+                            .defaultSuccessUrl("/", false)
+                            .failureUrl("/user/v1/login-error")
                  )
-                 .addFilterAt(jwtLoginFilter, UsernamePasswordAuthenticationFilter.class)
-                 .addFilterAt(jwtCheckFilter, BasicAuthenticationFilter.class);
+                .logout(logout -> logout.logoutSuccessUrl("/"))
+                 .exceptionHandling(exception -> exception.accessDeniedPage("/user/v1/access-denied"));
+
+         //                 .csrf().disable()
+//                 .sessionManagement(session ->
+//                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                 )
+//                 .addFilterAt(jwtLoginFilter, UsernamePasswordAuthenticationFilter.class)
+//                 .addFilterAt(jwtCheckFilter, BasicAuthenticationFilter.class);
          return http.build();
     } // method end
 
@@ -88,5 +95,13 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    @Bean
+    public WebSecurityCustomizer configure() {
+        // css나 js같은 관련 파일들 모두 적용 무시.
+        return (web) -> web.ignoring()
+                .requestMatchers(
+                        PathRequest.toStaticResources().atCommonLocations()
+                );
+    }
 
 } // config end

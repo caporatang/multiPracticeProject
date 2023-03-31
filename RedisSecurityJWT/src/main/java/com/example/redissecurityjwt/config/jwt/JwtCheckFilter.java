@@ -30,7 +30,6 @@ public class JwtCheckFilter extends BasicAuthenticationFilter {
 
     public JwtCheckFilter(UserService userService, AuthenticationManager authenticationManager) {
         super(authenticationManager);
-//    public JwtCheckFilter(AuthenticationManager authenticationManager, UserService userService) {
         this.userService = userService;
     }
 

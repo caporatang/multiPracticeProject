@@ -1,5 +1,6 @@
 package com.example.redissecurityjwt.board.domain;
 
+import com.example.redissecurityjwt.user.domain.User;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,7 +28,13 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "board_id")
+    private Long boardId;
     private String title;
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

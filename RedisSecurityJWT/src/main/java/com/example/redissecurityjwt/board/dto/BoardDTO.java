@@ -18,8 +18,10 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BoardDTO {
-    private Long id;
+    private Long userId;
+    private Long boardId;
     private String title;
     private String content;
 }

@@ -1,5 +1,6 @@
 package com.example.redissecurityjwt.user.domain;
 
+import com.example.redissecurityjwt.board.domain.Board;
 import com.example.redissecurityjwt.config.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,8 @@ import lombok.ToString;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -31,15 +34,17 @@ public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
     private String email;
     private String password;
 
     @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "id"))
     @JoinColumn(name = "id")
     @ToString.Exclude
     private Set<UserRole> authorities;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<Board> boards = new ArrayList<>();
 
 }
