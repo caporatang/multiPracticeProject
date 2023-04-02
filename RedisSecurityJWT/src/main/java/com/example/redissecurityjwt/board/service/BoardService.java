@@ -2,10 +2,15 @@ package com.example.redissecurityjwt.board.service;
 
 import com.example.redissecurityjwt.board.domain.Board;
 import com.example.redissecurityjwt.board.dto.BoardDTO;
+import com.example.redissecurityjwt.board.exception.BoardNotFoundException;
 import com.example.redissecurityjwt.board.repository.BoardJpaRepository;
+import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,12 +39,21 @@ public class BoardService {
     private final ModelMapper modelMapper;
     private final BoardJpaRepository boardRepository;
 
+    @Transactional
+    @Cacheable(value = "Board", key = "#boardId", cacheManager = "cacheManager") // -> 단건 조회 cache
+    public Board getBoard(Long boardId) {
+        return boardJpaRepository.findById(boardId).orElseThrow(() -> new BoardNotFoundException("게시물 조회 결과가 없습니다."));
+    }
+
+
+    @CachePut(value = "Board", key = "#boardDTO", cacheManager = "cacheManager") // -> put cache
     public void writePost(BoardDTO boardDTO) {
         Board inDTO = modelMapper.map(boardDTO, Board.class);
         boardRepository.save(inDTO);
     }
 
     @Transactional
+    @Cacheable(value = "Board", cacheManager = "cacheManager") // 전체 조회 cache
     public List<BoardDTO> boardList(Long boardId) {
         List<Board> boards = boardRepository.findAll();
         List<BoardDTO> boardDTOList = new ArrayList<>();
@@ -55,5 +69,13 @@ public class BoardService {
         }
         return boardDTOList;
     }
+
+    @CacheEvict(value = "Board", key = "#boardId", cacheManager = "cacheManager")
+    public void deletePost(Long boardId) {
+        Board boardEntity = boardJpaRepository.findById(boardId).orElseThrow(() -> new BoardNotFoundException("게시물 조회 결과가 없습니다."));
+        boardJpaRepository.delete(boardEntity);
+    }
+
+
 
 }

@@ -49,6 +49,7 @@ public class JwtLoginFilter extends UsernamePasswordAuthenticationFilter {
                                                 HttpServletResponse response) throws AuthenticationException
     {
        User user = objectMapper.readValue(request.getInputStream(), User.class);
+
        // userdetails 처리
        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                user.getEmail(), user.getPassword(), null

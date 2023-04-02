@@ -21,7 +21,11 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.14.2'
+
     implementation("com.auth0:java-jwt:3.16.0") // -> oauth0
     implementation("io.jsonwebtoken:jjwt:0.9.1") // --> okta jjwt
     implementation 'com.h2database:h2:'

@@ -2,6 +2,7 @@ package com.example.redissecurityjwt.user.domain;
 
 import com.example.redissecurityjwt.board.domain.Board;
 import com.example.redissecurityjwt.config.BaseTimeEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -40,11 +41,13 @@ public class User extends BaseTimeEntity {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
+    @JsonIgnore
     @ToString.Exclude
     private Set<UserRole> authorities;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @ToString.Exclude
+    @JsonIgnore
     private List<Board> boards = new ArrayList<>();
 
 }
