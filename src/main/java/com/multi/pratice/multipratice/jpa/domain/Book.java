@@ -54,7 +54,7 @@ public class Book extends BaseEntity {
     @ToString.Exclude // stackOverFlow 방지
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
     @ToString.Exclude
     private Publisher publisher;
 

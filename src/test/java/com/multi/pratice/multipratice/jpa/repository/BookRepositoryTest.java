@@ -34,7 +34,27 @@ public class BookRepositoryTest {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Test
+    void bookCascadeTest() {
+        // 영속성 전이 -> 결과적으로 좀 더 객체에 집중 할 수 있게 해주는 것 -> 객체 하나씩 영속성에 매번 등록해주지 않아도 된다.
+        Book book = new Book();
+        book.setName("나는 책");
 
+        Publisher publisher = new Publisher();
+        publisher.setName("나는 출판사 이름");
+
+        book.setPublisher(publisher);
+        bookRepository.save(book);
+
+        System.out.println("books : " + bookRepository.findAll());
+        System.out.println("publisher : " + publisherRepository.findAll());
+
+        Book book1 = bookRepository.findById(1L).get();
+        book1.getPublisher().setName("나는 변경된 출판사 이름");
+        bookRepository.save(book1);
+
+        System.out.println("publisher : " + publisherRepository.findAll());
+    }
 
     @Test
     void bookTest() {
