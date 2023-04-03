@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLOutput;
+
 /**
  * packageName : com.multi.pratice.multipratice.jpa.repository
  * fileName : BookRepositoryTest
@@ -54,6 +56,40 @@ public class BookRepositoryTest {
         bookRepository.save(book1);
 
         System.out.println("publisher : " + publisherRepository.findAll());
+
+
+        Book book2 = bookRepository.findById(1L).get();
+        // bookRepository.delete(book2);
+        // publisherRepository.delete(book2.getPublisher());
+
+        Book book3 = bookRepository.findById(1L).get();
+        book3.setPublisher(null);
+        bookRepository.save(book3);
+
+
+        System.out.println("books : " + bookRepository.findAll());
+        System.out.println("publishers : " + publisherRepository.findAll());
+        System.out.println("book3-publisher : " + bookRepository.findById(1L).get().getPublisher());
+    }
+
+    @Test
+    void bookRemoveCascadeTest() {
+        bookRepository.deleteById(1L);
+
+        System.out.println("books : " + bookRepository.findAll());
+        System.out.println("publishers " + publisherRepository.findAll());
+
+        bookRepository.findAll().forEach(book -> System.out.println(book.getPublisher()));
+    }
+
+    @Test
+    void softDelete() {
+        bookRepository.findAll().forEach(System.out::println);
+        System.out.println(bookRepository.findById(3L));
+
+        // where 어노테이션 사용 전 -> DB는 true false로 구분하지 않는다. 0 -> false, 1 -> true
+        // bookRepository.findAllByDeletedFalse().forEach(System.out::println);
+        // bookRepository.findAllByDeletedTrue().forEach(System.out::println);
     }
 
     @Test

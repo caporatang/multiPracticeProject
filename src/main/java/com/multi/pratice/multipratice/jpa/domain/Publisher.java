@@ -33,7 +33,10 @@ public class Publisher extends BaseEntity{
 
     private String name;
 
-    @OneToMany // -> 하나의 출판사는 여러개의 책을 가질수있음, 하나의 출판사(one) to 여러개의 책(Many)
+
+
+    // -> 하나의 출판사는 여러개의 책을 가질수있음, 하나의 출판사(one) to 여러개의 책(Many)
+    @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "publisher_id")
     @ToString.Exclude
     private List<Book> books = new ArrayList<>();
