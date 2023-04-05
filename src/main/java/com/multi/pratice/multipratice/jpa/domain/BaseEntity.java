@@ -30,16 +30,12 @@ import java.time.LocalDateTime;
 @EntityListeners(value = AuditingEntityListener.class)
 @MappedSuperclass
 public class BaseEntity implements Auditable {
-    // columnDefinition은 잘 사용하지 않음 --> data.sql 에서 데이터를 넣을때 LocalDateTime을 default값으로 넣어줄수있음
 
     @CreatedDate
-    // createdAt updatedAt은 BaseTimeEntity를 타지 않아, created, updated에 null이 찍힘, column의 default값을 설정하는 어노테이션
-    // @Column(columnDefinition = "datetime(6), default now(6)" comment '생성시간', nullable = false, updatable = false)
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    // @Column(columnDefinition = "datetime(6), default now(6)" comment '수정시간', nullable = false)
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 

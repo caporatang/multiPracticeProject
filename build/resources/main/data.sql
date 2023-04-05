@@ -11,6 +11,6 @@ insert into member(`id`, `name`, `email`, `created_at`, `updated_at`) values (5,
 
 insert into publisher(`id`, `name`, `created_at`, `updated_at`) values (1, '책 출판사', now(), now());
 
-insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`) values (1, 'JPA 111', 1, false, now(), now());
-insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`) values (2, 'JPA 222', 1, false, now(), now());
-insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`) values (3, 'JPA 333', 1, true, now(), now());
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`, `category`) values (1, 'JPA 111', 1, false, now(), now(), '개발IT');
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`, `category`) values (2, 'JPA 222', 1, false, now(), now(), '개발IT');
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`, `category`) values (3, 'JPA 333', 1, true, now(), now(), '개발IT');

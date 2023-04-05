@@ -47,6 +47,17 @@ public class BookRepositoryTest {
                 LocalDateTime.now().minusDays(1L),
                 LocalDateTime.now().minusDays(1L)
         ));
+
+        System.out.println("findByRecently : "
+                + bookRepository.findByNameRecently("JPA 111"
+                    , LocalDateTime.now().minusDays(1L)
+                    , LocalDateTime.now().minusDays(1L)));
+
+        System.out.println("나는 bookCategory" + bookRepository.findBookNameAndCategory());
+
+        bookRepository.findBookNameAndCategory().forEach(tuple -> {
+            System.out.println(tuple.get(0) + " " + tuple.get(1));
+        });
     }
 
 
