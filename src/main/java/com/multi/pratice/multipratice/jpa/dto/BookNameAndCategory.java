@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookNameAndCategory {
 
-    // @Query 테스트용 클래스
     private String name;
     private String category;
 }

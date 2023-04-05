@@ -34,8 +34,12 @@ public interface BookRepository extends JpaRepository<Book,Long> {
                                  @Param("createdAt") LocalDateTime createdAt,
                                  @Param("updatedAt") LocalDateTime updatedAt);
 
-    @Query(value = "select b.name as name, b.category as category from Book b")
-    List<Tuple> findBookNameAndCategory();
+    // 일반적으로 Entity가 리턴 타입이 아니고, 원하는 컬럼들만 추려서 데이터를 뽑아와야 하는 경우
+    // 아래처럼 사용하는 경우에 tuple 타입으로 저장이 된다. -> tuple로 필요해서 가지고 오는게 아니라면 DTO처럼 클래스가 아니라 interface로 선언해서 가지고 오자
+//    @Query(value = "select b.name as name, b.category as category from Book b")
+//    List<Tuple> findBookNameAndCategory();
 
-
+    // 그냥 클래스로 가지고 오고 싶은 경우라면 객체를 쿼리에서 바로 생성해서 사용할수있음
+    @Query(value = "select new com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory(b.name, b.category) from Book b")
+    List<BookNameAndCategory> findBookNameAndCategory();
 }

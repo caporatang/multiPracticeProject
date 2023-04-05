@@ -55,8 +55,13 @@ public class BookRepositoryTest {
 
         System.out.println("나는 bookCategory" + bookRepository.findBookNameAndCategory());
 
-        bookRepository.findBookNameAndCategory().forEach(tuple -> {
-            System.out.println(tuple.get(0) + " " + tuple.get(1));
+        // class로 객체를 만들어서 리턴 타입을 지정하는 경우 tuple에 저장이 되게 되어있다.
+        // 따로 원하는 데이터만 뽑아서 처리해야할 일이 있다면, DTO처럼 객체를 만들지말고, interface를 만들어서 가지고 오자
+        //bookRepository.findBookNameAndCategory().forEach(tuple -> {
+        //    System.out.println(tuple.get(0) + " " + tuple.get(1));
+        //});
+        bookRepository.findBookNameAndCategory().forEach(b -> {
+            System.out.println(b.getName() + " " + b.getCategory());
         });
     }
 
