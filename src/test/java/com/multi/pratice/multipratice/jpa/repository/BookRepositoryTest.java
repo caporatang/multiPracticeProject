@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLOutput;
+import java.time.LocalDateTime;
 
 /**
  * packageName : com.multi.pratice.multipratice.jpa.repository
@@ -35,6 +36,20 @@ public class BookRepositoryTest {
 
     @Autowired
     private MemberRepository memberRepository;
+
+
+    @Test
+    void queryTest() {
+        bookRepository.findAll().forEach(System.out::println);
+        System.out.println("findByNameEqualsAndCreatedAtGreaterThanEqualAndUpdatedAtGreaterThanEqual : "
+                + bookRepository.findByNameEqualsAndCreatedAtGreaterThanEqualAndUpdatedAtGreaterThanEqual(
+                        "JPA 111",
+                LocalDateTime.now().minusDays(1L),
+                LocalDateTime.now().minusDays(1L)
+        ));
+    }
+
+
 
     @Test
     void bookCascadeTest() {
