@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.awt.print.Pageable;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * packageName : com.multi.pratice.multipratice.jpa.repository
@@ -74,9 +75,27 @@ public class BookRepositoryTest {
         bookRepository.findBookNameAndCategory(PageRequest.of(0,1)).forEach(
                 bookNameAndCategory -> System.out.println(bookNameAndCategory.getCategory() + " : "+ bookNameAndCategory.getName())
         );
-
     }
 
+    @Test
+    void nativeQueryTest() {
+        // 일반적인 findAll -> where절이 붙음
+        // bookRepository.findAll().forEach(System.out::println);
+        // nativeQuery -> Entity에 작성한 @Where을 무시한 select * from 쿼리가 발생
+        // bookRepository.findAllCustom().forEach(System.out::println);
+
+        List<Book> books = bookRepository.findAll();
+        for(Book book : books) {
+            book.setCategory("IT책임");
+        }
+        bookRepository.saveAll(books); // -> 하나하나 아이디값으로 update 쿼리를 날림 -> 데이터가 많은 경우 성능 이슈가 발생
+        System.out.println(bookRepository.findAll());
+
+        System.out.println("update rows : " + bookRepository.updateCategories());
+        bookRepository.findAllCustom().forEach(System.out::println);
+
+        System.out.println(bookRepository.showTables());
+    }
 
 
     @Test

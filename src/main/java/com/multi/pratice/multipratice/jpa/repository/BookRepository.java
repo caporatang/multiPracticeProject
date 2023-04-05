@@ -5,8 +5,10 @@ import com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Tuple;
 import java.awt.print.Pageable;
@@ -49,4 +51,19 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     // @Query로 page 사용 해보기
     @Query(value = "select new com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory(b.name, b.category) from Book b")
     Page<BookNameAndCategory> findBookNameAndCategory(PageRequest pageRequest);
+
+
+    // native query는 Entity속성을 사용하지 못함 -> 스몰 book
+    @Query(value = "select * from book", nativeQuery = true)
+    List<Book> findAllCustom();
+
+    // spring 공식 문서에서는 트랜잭셔널은 구체 클래스에서 사용하도록 권장 하고 있음
+    // jpa는 인터페이스를 기반으로 한 프록시이므로 사용해도 괜찮다. -> 사용하는 메서드에서 붙여도 상관은 없음
+    @Transactional // native 쿼리 사용시 트랜잭셔널을 직접 선언해주어야함 -> jpa에서 제공되는 save, update등은 내부적으로 @트랜잭셔널이 선언이 되어있음
+    @Modifying // update 라는 것을 표기
+    @Query(value = "update book set category = 'IT전문서'", nativeQuery = true)
+    int updateCategories();
+
+    @Query(value = "show tables", nativeQuery = true)
+    List<String> showTables();
 }
