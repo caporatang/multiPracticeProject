@@ -2,11 +2,14 @@ package com.multi.pratice.multipratice.jpa.repository;
 
 import com.multi.pratice.multipratice.jpa.domain.Book;
 import com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.persistence.Tuple;
+import java.awt.print.Pageable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,4 +45,8 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     // 그냥 클래스로 가지고 오고 싶은 경우라면 객체를 쿼리에서 바로 생성해서 사용할수있음
     @Query(value = "select new com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory(b.name, b.category) from Book b")
     List<BookNameAndCategory> findBookNameAndCategory();
+
+    // @Query로 page 사용 해보기
+    @Query(value = "select new com.multi.pratice.multipratice.jpa.dto.BookNameAndCategory(b.name, b.category) from Book b")
+    Page<BookNameAndCategory> findBookNameAndCategory(PageRequest pageRequest);
 }

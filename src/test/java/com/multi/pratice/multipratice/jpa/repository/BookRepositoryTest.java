@@ -7,8 +7,11 @@ import com.multi.pratice.multipratice.jpa.domain.Review;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
 import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 
@@ -63,6 +66,15 @@ public class BookRepositoryTest {
         bookRepository.findBookNameAndCategory().forEach(b -> {
             System.out.println(b.getName() + " " + b.getCategory());
         });
+
+        bookRepository.findBookNameAndCategory(PageRequest.of(1,1)).forEach(
+                bookNameAndCategory -> System.out.println(bookNameAndCategory.getCategory() + " : "+ bookNameAndCategory.getName())
+        );
+
+        bookRepository.findBookNameAndCategory(PageRequest.of(0,1)).forEach(
+                bookNameAndCategory -> System.out.println(bookNameAndCategory.getCategory() + " : "+ bookNameAndCategory.getName())
+        );
+
     }
 
 
