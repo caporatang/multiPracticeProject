@@ -4,6 +4,7 @@ import com.multi.pratice.multipratice.jpa.domain.Book;
 import com.multi.pratice.multipratice.jpa.domain.Member;
 import com.multi.pratice.multipratice.jpa.domain.Publisher;
 import com.multi.pratice.multipratice.jpa.domain.Review;
+import com.multi.pratice.multipratice.jpa.dto.BookStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -97,6 +98,17 @@ public class BookRepositoryTest {
         System.out.println(bookRepository.showTables());
     }
 
+    @Test
+    void converterTest() {
+        bookRepository.findAll().forEach(System.out::println);
+
+        Book book = new Book();
+        book.setName("다른 IT전문서적");
+        book.setStatus(new BookStatus(200));
+        bookRepository.save(book);
+
+        System.out.println(bookRepository.findRawRecord().values());
+    }
 
     @Test
     void bookCascadeTest() {

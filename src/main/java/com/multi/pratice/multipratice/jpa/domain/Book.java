@@ -1,5 +1,7 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
+import com.multi.pratice.multipratice.jpa.domain.converter.BookStatusConverter;
+import com.multi.pratice.multipratice.jpa.dto.BookStatus;
 import com.multi.pratice.multipratice.jpa.listener.Auditable;
 import com.multi.pratice.multipratice.springbasic.designpattern.strategy.Strategy;
 import lombok.*;
@@ -65,4 +67,6 @@ public class Book extends BaseEntity {
     // soft delete option
     private boolean deleted;
 
+    // @Convert(converter = BookStatusConverter.class) --> Converter에 autoApply 속성을 true로 준다면 따로 지정을 하지 않아도 된다.
+    private BookStatus status; // 판매 상태
 }
