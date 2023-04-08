@@ -1,5 +1,7 @@
 package com.multi.pratice.multipratice.jpa.repository;
 
+import com.multi.pratice.multipratice.java.basic.oop.lambda.Add;
+import com.multi.pratice.multipratice.jpa.domain.Address;
 import com.multi.pratice.multipratice.jpa.domain.Gender;
 import com.multi.pratice.multipratice.jpa.domain.Member;
 import com.multi.pratice.multipratice.jpa.domain.MemberHistory;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,6 +27,9 @@ class MemberRepositoryTest {
 
     @Autowired
     private MemberHistoryRepository memberHistoryRepository;
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Test
     void crud() {
@@ -316,6 +322,45 @@ class MemberRepositoryTest {
 
     }
 
+    @Test
+    void embedTest() {
+        memberRepository.findAll().forEach(System.out::println);
+
+        Member member = new Member();
+        member.setName("kimTaeIl");
+        member.setHomeAddress(new Address("서울시", "강남구", "강남대로 365", "06241"));
+        member.setCompanyAddress(new Address("서울시", "성동구", "나는 회사!", "15599"));
+        memberRepository.save(member);
+
+        Member member1 = new Member();
+        // 객체를 null로 세팅하고 출력하는 경우
+        // Member(id=7, name=나는2번째태일, email=null, gender=null, homeAddress=null, companyAddress=null)
+        // DB에 저장되는 데이터는 address와 관련된 컬럼들이 전부 다 null로 출력된다. --> 객체를 출력하면 다른 결과, DB에서 조회하면 같은 결과
+        member1.setName("나는2번째태일");
+        member1.setHomeAddress(null);
+        member1.setCompanyAddress(null);
+
+        memberRepository.save(member1);
+
+        Member member2 = new Member();
+        // 객체는 만들고 데이터를 세팅하지 않고 출력하는 경우
+        // Member(id=8, name=나는2번째태일, email=null, gender=null, homeAddress=Address(city=null, district=null, detail=null, zipCode=null), companyAddress=Address(city=null, district=null, detail=null, zipCode=null))
+        // DB에 저장되는 데이터는 address와 관련된 컬럼들이 전부 다 null로 출력된다. --> 객체를 출력하면 다른 결과, DB에서 조회하면 같은 결과
+        member2.setName("나는3번째태일");
+        member2.setHomeAddress(new Address());
+        member2.setCompanyAddress(new Address());
+
+        memberRepository.save(member2);
+
+        // DB를 읽어 오면 같은 결과가 출력되는 이유는 영속성 컨텍스트의 1차캐시 때문이다.
+        // 컨텍스트를 clear하면, 모든 컬럼 null이 아니라, 위에 두 케이스 모두 homeAddress=null, companyAddress=null 이 출력된다.
+        entityManager.clear();
+
+        memberRepository.findAll().forEach(System.out::println);
+        memberHistoryRepository.findAll().forEach(System.out::println);
+
+        memberRepository.findAllRawRecord().forEach(a -> System.out.println(a.values()));
+    }
 
 
 
