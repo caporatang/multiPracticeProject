@@ -3,6 +3,8 @@ package com.multi.pratice.multipratice.jpa.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * packageName : com.multi.pratice.multipratice.jpa.domain
@@ -28,13 +30,23 @@ public class Review extends BaseEntity{
     private String content;
     private float score;
 
-
-    // ManyToOne -> many쪽에서 fk를 갖게 된다
-    // --> 한명의 맴버가 여러개의 리뷰를 가질수 있음, 한권의 책에 대한 리뷰가 여러개 일수 있음
-    @ManyToOne
+    // ManyToOne의 fetch default는 Eager -> ToString.Exclude를 해도 Eager로 설정 되어있기 때문에 쿼리가 발생된다.
+    // getter를 통해 가지고 오지 않으면 쿼리가 발생되지 않는다.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude // -> n + 1 확인용 ToString 제외
     private Member member;
 
-    @ManyToOne
+    // ManyToOne의 fetch default는 Eager -> ToString.Exclude를 해도 Eager로 설정 되어있기 때문에 쿼리가 발생된다.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude // -> n + 1 확인용 ToString 제외
     private Book book;
 
+    // oneToMany의 fetch default는 lazy
+    // reviewRepositoryTest -> findAll을 했을때 review 쿼리 한개를 조인으로 실행시킨다고 생각을 하지만,
+    // 실제로는 review 쿼리 한개에, comment 쿼리 두개(넣어둔 데이터 갯수가 2개)가 발생된다.
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "review_id")
+    private List<Comment> comments;
+
+    // FetchType을 Lazy로 바꾼다고 무조건 N + 1이 해결 되는것은 아님 -> 쿼리를 날리는 시점을 변경 하는 것 뿐, 쿼리의 갯수 까지는 막지 못함
 }
