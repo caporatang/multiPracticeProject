@@ -6,6 +6,8 @@ import com.multi.pratice.multipratice.jpa.domain.Gender;
 import com.multi.pratice.multipratice.jpa.domain.Member;
 import com.multi.pratice.multipratice.jpa.domain.MemberHistory;
 import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,8 @@ import javax.persistence.EntityManager;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @Transactional
@@ -361,6 +365,47 @@ class MemberRepositoryTest {
 
         memberRepository.findAllRawRecord().forEach(a -> System.out.println(a.values()));
     }
+
+
+    @Test
+    @DisplayName("영속성컨텍스트 1차 캐시와 DB 데이터의 불일치 트러블 슈팅!")
+    void contextCacheTest() {
+        memberRepository.findAll().forEach(System.out::println);
+
+        Member member = new Member();
+        member.setName("kimTaeIl");
+        member.setHomeAddress(new Address("서울시", "강남구", "강남대로 365", "06241"));
+        member.setCompanyAddress(new Address("서울시", "성동구", "나는 회사!", "15599"));
+        memberRepository.save(member);
+
+        Member member1 = new Member();
+        member1.setName("나는2번째태일");
+        member1.setHomeAddress(null);
+        member1.setCompanyAddress(null);
+
+        memberRepository.save(member1);
+
+        Member member2 = new Member();
+        member2.setName("나는3번째태일");
+        member2.setHomeAddress(new Address());
+        member2.setCompanyAddress(new Address());
+
+        memberRepository.save(member2);
+
+        // 위에서 데이터를 넣고 save하고 캐시를 클리어하면, 아래 assertAll이 실패하게 된다. -> 실제 DB에 있는 데이터와 맞지 않아서 발생되는 문제!
+        entityManager.clear();
+
+        memberRepository.findAll().forEach(System.out::println);
+        memberHistoryRepository.findAll().forEach(System.out::println);
+
+        memberRepository.findAllRawRecord().forEach(a -> System.out.println(a.values()));
+
+        Assertions.assertAll(
+                () -> assertThat(memberRepository.findById(7L).get().getHomeAddress()).isNull(),
+                () -> assertThat(memberRepository.findById(8L).get().getHomeAddress()).isInstanceOf(Address.class)
+        );
+    }
+
 
 
 

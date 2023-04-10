@@ -3,6 +3,7 @@ package com.multi.pratice.multipratice.jpa.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * packageName : com.multi.pratice.multipratice.jpa.domain
@@ -32,5 +33,10 @@ public class Comment extends BaseEntity{
     @ManyToOne
     @ToString.Exclude
     private Review review;
+
+    // LocalDateTime test Only
+    // -> jpa의 auto ddl 을 사용하게 되면 자동으로 컬럼의 데이터는 datetime(6)으로 생성되게 된다.
+    @Column(columnDefinition = "datetime")
+    private LocalDateTime commentedAt;
 
 }
