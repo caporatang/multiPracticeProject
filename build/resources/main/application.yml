@@ -65,3 +65,13 @@ spring:
     url: jdbc:mysql://localhost:3306/book_manager
     username: root
     password: password1
+
+# jpa 더티체크 확인을 위한 log 레벨 수정 -> trace는 운영서버에서는 사용해선 안된다.
+# 영속성 컨텍스트의 엔티티들은 모두 더티체크의 대상이 된다.
+# 영속성 컨텍스트가 관리하는 범위는 영속성 session -> 외부에서 session을 설정하는게 @Transactional -> 쉽게 생각하면 영속성 컨텍스트에게 관리하라고 외부에서 설정하는것
+# ------------- log -----------
+# main] o.h.e.i.DefaultFlushEntityEventListener  : Found dirty properties [[com.multi.pratice.multipratice.jpa.domain.Comment#1]] : [comment]
+# 2023-04-10 22:50:29.236 TRACE 76740 --- [           main] o.h.e.i.DefaultFlushEntityEventListener  : Updating entity: [com.multi.pratice.multipratice.jpa.domain.Comment#1]
+logging:
+  level:
+    root: trace

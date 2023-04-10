@@ -1,6 +1,7 @@
 package com.multi.pratice.multipratice.jpa.domain;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
 @Setter
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true) // -> BaseEntity
+@DynamicUpdate // -> 테이블 전체 컬럼이 아니라 영향을 받은 컬럼에 대해서만 처리를 해준다
 public class Comment extends BaseEntity{
 
     @Id
