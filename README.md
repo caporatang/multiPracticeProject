@@ -19,7 +19,7 @@
 #### 2-3 Jpql, Native query
 #### 2-4 N : 1, 1 : N relation mapping
 #### 2-5 영속성 컨텍스트에 대한 생명주기 및 1차 캐시, 더티체킹
-#### 2-6 Listener(BaseTimeEntity)
+#### 2-6 Listener
 #### 2-7 Embedded type
 #### 2-8 N + 1 이슈 trouble shooting
 #### 위에서 발생한 케이스들을 Junit을 사용하여 테스트
