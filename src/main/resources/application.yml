@@ -72,6 +72,6 @@ spring:
 # ------------- log -----------
 # main] o.h.e.i.DefaultFlushEntityEventListener  : Found dirty properties [[com.multi.pratice.multipratice.jpa.domain.Comment#1]] : [comment]
 # 2023-04-10 22:50:29.236 TRACE 76740 --- [           main] o.h.e.i.DefaultFlushEntityEventListener  : Updating entity: [com.multi.pratice.multipratice.jpa.domain.Comment#1]
-logging:
-  level:
-    root: trace
+#logging:
+#  level:
+#    root: trace
