@@ -38,5 +38,4 @@ public class Threadd {
     //           유효한 스레드가 생기면 notify()는 무작위 하나, notifyAll()은 wait이 걸려있는 전체를 실행하여 Runnable 상태로 만든다
     // join() -> 두개의 스레드가 실행되고 있을 때, 하나의 스레드의 결과를 참조 해야할 때 join()을 걸어주면, 다른 스레드가 종료되어 결과가 나올때까지 Not Runnable 상태로 대기한다. -> other thread exits
 
-
 }
