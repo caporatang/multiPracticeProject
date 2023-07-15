@@ -30,15 +30,9 @@ public class SortComparableComparator {
         List<Integer> intList = Arrays.asList(5, 2, 4, 1, 3);
         // 1, 2, 3, 4, 5로 정렬된다.
         Collections.sort(intList);
-
     }
 
     // Arrays.sort()는 파라미터로 T [] 인 기본 배열을 받고 Collections.sort() 파라미터로 List인 List를 받는다.
     // sort 메서드의 기본 자료형들은 어떻게 비교해서 정렬할 수 있는 이유는 Comparable 인터페이스를 구현했기 때문이다.
     // 즉, Comparable 인터페이스를 구현해서 compareTo 메서드를 오버라이딩한 클래스는 sort() 메서드를 통해 비교가 가능한 것이다.
-
-
-
-
-
 }
