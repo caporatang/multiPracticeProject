@@ -1,0 +1,103 @@
+package com.example.demo.entity;
+
+import java.io.File;
+import java.util.Iterator;
+
+public class FileUtilsLibrary {
+
+    // 1. Guava 사용하기
+    public static void listFiles(File rootDir)
+    {
+        for (File file: Files.fileTreeTraverser().breadthFirstTraversal(rootDir))
+        {
+            if (file.isFile()) {
+                System.out.println(file);
+            }
+        }
+    }
+
+    // 2. Apache Commons.io 사용하기
+    public static void listFiles(File rootDir)
+    {
+        Iterator<File> files = FileUtils.iterateFiles(rootDir,
+                TrueFileFilter.INSTANCE,
+                TrueFileFilter.INSTANCE);
+        while (files.hasNext()) {
+            System.out.println(files.next());
+        }
+    }
+
+    // Apache Commons.io
+    public static void listFiles(File rootDir)
+    {
+        Iterator<File> files = FileUtils.iterateFilesAndDirs(rootDir,
+                TrueFileFilter.INSTANCE,
+                TrueFileFilter.INSTANCE);
+        while (files.hasNext()) {
+            System.out.println(files.next());
+        }
+    }
+    // Apache Commons.io
+    public static void listFiles(File rootDir)
+    {
+        // 확장 어레이를 null로 전달하여 모든 파일 확장자를 반환
+        Iterator<File> files = FileUtils.iterateFiles(rootDir, null, true);
+        while (files.hasNext()) {
+            System.out.println(files.next());
+        }
+    }
+
+    public static void listFiles(File rootDir)
+    {
+        Collection<File> files = FileUtils.listFiles(rootDir,
+                TrueFileFilter.INSTANCE,
+                TrueFileFilter.INSTANCE);
+
+        for (File file: files) {
+            System.out.println(file);
+        }
+    }
+
+    public static void listFiles(File rootDir)
+    {
+        Collection<File> files = FileUtils.listFilesAndDirs(rootDir,
+                TrueFileFilter.INSTANCE,
+                TrueFileFilter.INSTANCE);
+
+        for (File file: files) {
+            System.out.println(file);
+        }
+    }
+
+    public static void listFiles(File rootDir)
+    {
+        Collection<File> files = FileUtils.listFiles(rootDir, null, true);
+
+        for (File file: files) {
+            System.out.println(file);
+        }
+    }
+
+    // Apache Commons IO를 사용하여 디렉토리의 모든 파일을 나열하는 재귀 메서드
+    public static void listFiles(File rootDir)
+    {
+        // FileFilterUtils.fileFileFilter()는 허용하는 파일 필터를 반환
+        // 디렉토리가 아닌 파일만 필터링
+        File[] files = rootDir.listFiles((FileFilter)
+                FileFilterUtils.fileFileFilter());
+
+        for (File file: files) {
+            System.out.println(file);
+        }
+
+
+        // 파일이 아닌 디렉토리만.
+        File[] dirs = rootDir.listFiles((FileFilter)
+                FileFilterUtils.directoryFileFilter());
+
+        for (File dir: dirs) {
+            listFiles(dir);
+        }
+    }
+    // Guava 라이브러리, Apache Commons IO 파일관련한 유틸, 라이브러리도 조만간 깊게 공부..하기...
+}
