@@ -48,6 +48,10 @@ dependencies {
     // queryDsl
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+
+    // camel
+    implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.8.0'
+
 }
 
 tasks.named('test') {
