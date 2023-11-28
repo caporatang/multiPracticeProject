@@ -52,6 +52,12 @@ dependencies {
     // camel
     implementation 'org.apache.camel.springboot:camel-spring-boot-starter:3.8.0'
 
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    implementation group: 'io.netty', name: 'netty-all', version: '4.1.100.Final'
+
+    // https://mvnrepository.com/artifact/org.apache.camel/camel-netty
+    implementation 'org.apache.camel:camel-netty:3.8.0'
+
 }
 
 tasks.named('test') {
