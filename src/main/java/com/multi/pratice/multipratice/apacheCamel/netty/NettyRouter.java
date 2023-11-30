@@ -1,4 +1,4 @@
-package com.multi.pratice.multipratice.apacheCamel.netty;
+package com.example.pratice_apache_camel.apacheCamel.netty;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -23,15 +23,25 @@ public class NettyRouter {
     @SneakyThrows
     public static void main(String[] args) {
         NettyRouteBuilder nettyRouteBuilder = new NettyRouteBuilder();
+        String response = "";
 
         CamelContext camelContext = new DefaultCamelContext();
 
         camelContext.addRoutes(nettyRouteBuilder);
-
         camelContext.start();
 
         ProducerTemplate producerTemplate = camelContext.createProducerTemplate();
-        producerTemplate.sendBody("direct:startNetty", "Message for Netty");
+
+        try {
+            response = producerTemplate.requestBody("direct:startNetty", "Message for Netty", String.class);
+            log.info("NETTY ROUTER CAMEL GET RESPONSE !: {}", response);
+        } catch (Exception e) {
+            log.error("Error while getting response from Camel", e);
+        }
+
+        log.info("NETTY ROUTER CAMEL GET RESPONSE !: {}", response);
+
+        camelContext.stop();
 
         Thread.sleep(10000 * 10000L);
     }

@@ -1,4 +1,4 @@
-package com.multi.pratice.multipratice.apacheCamel.netty;
+package com.example.pratice_apache_camel.apacheCamel.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -15,6 +15,9 @@ import io.netty.util.concurrent.EventExecutorGroup;
 import io.netty.util.concurrent.FutureListener;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.camel.CamelContext;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.impl.DefaultCamelContext;
 
 
 /**
@@ -35,6 +38,12 @@ public class NettyHttpServer {
         EventLoopGroup parentGroup = new NioEventLoopGroup();
         EventLoopGroup childGroup = new NioEventLoopGroup(4);
         EventExecutorGroup eventExecutorGroup = new DefaultEventLoopGroup(4);
+
+        // CamelContext 생성
+        CamelContext camelContext = new DefaultCamelContext();
+        // ProducerTemplate 생성
+        ProducerTemplate producerTemplate = camelContext.createProducerTemplate();
+
         try {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             var server = serverBootstrap
@@ -49,7 +58,7 @@ public class NettyHttpServer {
                             ch.pipeline().addLast(
                                     new HttpServerCodec(),
                                     new HttpObjectAggregator(1024 * 1024),
-                                    new NettyHttpServerHandler()
+                                    new NettyHttpServerHandler(producerTemplate)
                             );
                         }
                     });

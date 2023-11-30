@@ -1,4 +1,4 @@
-package com.multi.pratice.multipratice.apacheCamel.moveFile;
+package com.example.pratice_apache_camel.apacheCamel.moveFile;
 
 import lombok.SneakyThrows;
 import org.apache.camel.CamelContext;
