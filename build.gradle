@@ -1,8 +1,8 @@
-//buildscript { // queryDsl
-//    ext {
-//        queryDslVersion = "5.0.0"
-//    }
-//}
+buildscript { // queryDsl
+    ext {
+        queryDslVersion = "5.0.0"
+    }
+}
 
 
 plugins {
@@ -47,8 +47,8 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 
     // queryDsl
-    //implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
-    //annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
 
     // https://mvnrepository.com/artifact/io.netty/netty-all
     implementation group: 'io.netty', name: 'netty-all', version: '4.1.100.Final'
@@ -66,21 +66,21 @@ jar {
 }
 
 // queryDsl -> Qtype 생성 경로
-//def querydslDir = "$buildDir/generated/querydsl"
-//querydsl {
-//    jpa = true
-//    querydslSourcesDir = querydslDir
-//}
-//sourceSets {
-//    main.java.srcDir querydslDir
-//}
-//compileQuerydsl{
-//    options.annotationProcessorPath = configurations.querydsl
-//}
-//configurations {
-//    compileOnly {
-//        extendsFrom annotationProcessor
-//    }
-//    querydsl.extendsFrom compileClasspath
-//}
+def querydslDir = "$buildDir/generated/querydsl"
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+sourceSets {
+    main.java.srcDir querydslDir
+}
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
+}
 
