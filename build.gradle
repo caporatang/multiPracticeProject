@@ -36,7 +36,8 @@ dependencies {
 
 
     implementation("com.auth0:java-jwt:3.16.0") // -> oauth0
-    implementation("io.jsonwebtoken:jjwt:0.9.1") // --> okta jjwt
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
+    implementation 'org.projectlombok:lombok:1.18.22'// --> okta jjwt
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'

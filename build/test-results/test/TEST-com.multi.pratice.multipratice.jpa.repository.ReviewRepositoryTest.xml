@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-30T12:11:29" hostname="MacBook-Pro.local" time="0.034">
+  <properties/>
+  <testcase name="reviewTest()" classname="com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest" time="0.016"/>
+  <testcase name="커스텀 쿼리로 fetch join 테스트" classname="com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest" time="0.006"/>
+  <testcase name="entityGraph test" classname="com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest" time="0.01"/>
+  <system-out><![CDATA[2024-08-30 21:11:29.234  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest], using SpringBootContextLoader
+2024-08-30 21:11:29.235  INFO 5502 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-08-30 21:11:29.235  INFO 5502 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest]: ReviewRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-30 21:11:29.236  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.multi.pratice.multipratice.MultiPracticeApplication for test class com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest
+2024-08-30 21:11:29.237  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-08-30 21:11:29.237  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4d56f4c0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@74e3033a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@5cc28208, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1374c26f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@69fec435, org.springframework.test.context.support.DirtiesContextTestExecutionListener@568e0e3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4df2f084, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@782024ef, org.springframework.test.context.event.EventPublishingTestExecutionListener@676088b2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@254d1345, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7fe1b1b8, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@61ff5f7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6559c89e, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@28c3284b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5a5d309a]
+2024-08-30 21:11:29.240  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@8a2f7af testClass = ReviewRepositoryTest, testInstance = com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest@39121780, testMethod = reviewTest@ReviewRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@af839d8 testClass = ReviewRepositoryTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@734c1673]; rollback [true]
+Hibernate: 
+    select
+        review0_.id as id1_8_0_,
+        comments1_.id as id1_2_1_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_,
+        comments1_.created_at as created_2_2_1_,
+        comments1_.updated_at as updated_3_2_1_,
+        comments1_.comment as comment4_2_1_,
+        comments1_.commented_at as commente5_2_1_,
+        comments1_.review_id as review_i6_2_1_,
+        comments1_.review_id as review_i6_2_0__,
+        comments1_.id as id1_2_0__ 
+    from
+        review review0_ 
+    left outer join
+        comment comments1_ 
+            on review0_.id=comments1_.review_id
+2024-08-30 21:11:29.253  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 전체 데이터 가져옴 -----
+2024-08-30 21:11:29.253  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : reviews.get(0), [Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, comment=나는 1번 리뷰의 댓글 2, commentedAt=null), Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, comment=나는 1번 리뷰의 댓글 1, commentedAt=null)]
+2024-08-30 21:11:29.253  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 첫번째 리뷰의 코멘트 ------
+2024-08-30 21:11:29.254  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : reviews.get(1), [Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=3, comment=나는 2번 리뷰의 댓글 1, commentedAt=null)]
+2024-08-30 21:11:29.254  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 두번째 리뷰의 코멘트 ------
+2024-08-30 21:11:29.255  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@8a2f7af testClass = ReviewRepositoryTest, testInstance = com.multi.pratice.multipratice.jpa.repository.ReviewRepositoryTest@39121780, testMethod = reviewTest@ReviewRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@af839d8 testClass = ReviewRepositoryTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+Hibernate: 
+    select
+        distinct review0_.id as id1_8_0_,
+        comments1_.id as id1_2_1_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_,
+        comments1_.created_at as created_2_2_1_,
+        comments1_.updated_at as updated_3_2_1_,
+        comments1_.comment as comment4_2_1_,
+        comments1_.commented_at as commente5_2_1_,
+        comments1_.review_id as review_i6_2_1_,
+        comments1_.review_id as review_i6_2_0__,
+        comments1_.id as id1_2_0__ 
+    from
+        review review0_ 
+    inner join
+        comment comments1_ 
+            on review0_.id=comments1_.review_id
+2024-08-30 21:11:29.260  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 전체 데이터 가져옴 -----
+2024-08-30 21:11:29.260  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : reviews.get(0), [Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, comment=나는 1번 리뷰의 댓글 1, commentedAt=null), Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, comment=나는 1번 리뷰의 댓글 2, commentedAt=null)]
+2024-08-30 21:11:29.260  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 첫번째 리뷰의 코멘트 ------
+2024-08-30 21:11:29.260  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : reviews.get(1), [Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=3, comment=나는 2번 리뷰의 댓글 1, commentedAt=null)]
+2024-08-30 21:11:29.260  INFO 5502 --- [    Test worker] c.m.p.m.j.r.ReviewRepositoryTest         : ----- 두번째 리뷰의 코멘트 ------
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, title=리뷰의 테스트, content=짱 좋음 ~ , score=5.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, comment=나는 1번 리뷰의 댓글 1, commentedAt=null), Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, comment=나는 1번 리뷰의 댓글 2, commentedAt=null)])
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, title=두번째 리뷰의 테스트, content=짱 싫음, score=3.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=3, comment=나는 2번 리뷰의 댓글 1, commentedAt=null)])
+Hibernate: 
+    select
+        review0_.id as id1_8_0_,
+        comments1_.id as id1_2_1_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_,
+        comments1_.created_at as created_2_2_1_,
+        comments1_.updated_at as updated_3_2_1_,
+        comments1_.comment as comment4_2_1_,
+        comments1_.commented_at as commente5_2_1_,
+        comments1_.review_id as review_i6_2_1_,
+        comments1_.review_id as review_i6_2_0__,
+        comments1_.id as id1_2_0__ 
+    from
+        review review0_ 
+    left outer join
+        comment comments1_ 
+            on review0_.id=comments1_.review_id
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, title=리뷰의 테스트, content=짱 좋음 ~ , score=5.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, comment=나는 1번 리뷰의 댓글 2, commentedAt=null), Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, comment=나는 1번 리뷰의 댓글 1, commentedAt=null)])
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, title=두번째 리뷰의 테스트, content=짱 싫음, score=3.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=3, comment=나는 2번 리뷰의 댓글 1, commentedAt=null)])
+Hibernate: 
+    select
+        review0_.id as id1_8_0_,
+        comments1_.id as id1_2_1_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_,
+        comments1_.created_at as created_2_2_1_,
+        comments1_.updated_at as updated_3_2_1_,
+        comments1_.comment as comment4_2_1_,
+        comments1_.commented_at as commente5_2_1_,
+        comments1_.review_id as review_i6_2_1_,
+        comments1_.review_id as review_i6_2_0__,
+        comments1_.id as id1_2_0__ 
+    from
+        review review0_ 
+    left outer join
+        comment comments1_ 
+            on review0_.id=comments1_.review_id
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, title=리뷰의 테스트, content=짱 좋음 ~ , score=5.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, comment=나는 1번 리뷰의 댓글 2, commentedAt=null), Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=1, comment=나는 1번 리뷰의 댓글 1, commentedAt=null)])
+Review(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=2, title=두번째 리뷰의 테스트, content=짱 싫음, score=3.0, comments=[Comment(super=BaseEntity(createdAt=2024-08-30T21:06:26, updatedAt=2024-08-30T21:06:26), id=3, comment=나는 2번 리뷰의 댓글 1, commentedAt=null)])
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

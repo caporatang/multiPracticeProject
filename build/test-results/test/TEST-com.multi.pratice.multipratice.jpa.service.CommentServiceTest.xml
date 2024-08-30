@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.multi.pratice.multipratice.jpa.service.CommentServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-30T12:11:29" hostname="MacBook-Pro.local" time="0.023">
+  <properties/>
+  <testcase name="commentTest()" classname="com.multi.pratice.multipratice.jpa.service.CommentServiceTest" time="0.023"/>
+  <system-out><![CDATA[2024-08-30 21:11:29.291  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.multi.pratice.multipratice.jpa.service.CommentServiceTest], using SpringBootContextLoader
+2024-08-30 21:11:29.292  INFO 5502 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.multi.pratice.multipratice.jpa.service.CommentServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-08-30 21:11:29.292  INFO 5502 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.multi.pratice.multipratice.jpa.service.CommentServiceTest]: CommentServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-30 21:11:29.293  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.multi.pratice.multipratice.MultiPracticeApplication for test class com.multi.pratice.multipratice.jpa.service.CommentServiceTest
+2024-08-30 21:11:29.293  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-08-30 21:11:29.293  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@103712b1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2360e10d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1ff919ab, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5b79b600, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@73739544, org.springframework.test.context.support.DirtiesContextTestExecutionListener@573f7aae, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5c05a3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@16837a1e, org.springframework.test.context.event.EventPublishingTestExecutionListener@79b5143f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@55f3ebad, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@35628dad, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@383c4295, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6979ad41, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@231d9d40, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2b3736b]
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        comment
+        (created_at, updated_at, comment, commented_at, review_id) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        comment0_.id as id1_2_,
+        comment0_.created_at as created_2_2_,
+        comment0_.updated_at as updated_3_2_,
+        comment0_.comment as comment4_2_,
+        comment0_.commented_at as commente5_2_,
+        comment0_.review_id as review_i6_2_ 
+    from
+        comment comment0_
+Hibernate: 
+    select
+        review0_.id as id1_8_0_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_ 
+    from
+        review review0_ 
+    where
+        review0_.id=?
+Hibernate: 
+    select
+        review0_.id as id1_8_0_,
+        review0_.created_at as created_2_8_0_,
+        review0_.updated_at as updated_3_8_0_,
+        review0_.book_id as book_id7_8_0_,
+        review0_.content as content4_8_0_,
+        review0_.member_id as member_i8_8_0_,
+        review0_.score as score5_8_0_,
+        review0_.title as title6_8_0_ 
+    from
+        review review0_ 
+    where
+        review0_.id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

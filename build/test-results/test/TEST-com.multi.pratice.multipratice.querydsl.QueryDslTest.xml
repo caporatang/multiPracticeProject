@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.multi.pratice.multipratice.querydsl.QueryDslTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-08-30T12:12:20" hostname="MacBook-Pro.local" time="0.089">
+  <properties/>
+  <testcase name="queryDsl : 조건 여러개 검색" classname="com.multi.pratice.multipratice.querydsl.QueryDslTest" time="0.075"/>
+  <testcase name="queryDsl : 이름으로 조회" classname="com.multi.pratice.multipratice.querydsl.QueryDslTest" time="0.004"/>
+  <testcase name="queryDsl : 조회 결과를 정렬" classname="com.multi.pratice.multipratice.querydsl.QueryDslTest" time="0.009"/>
+  <system-out><![CDATA[2024-08-30 21:12:20.621  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.multi.pratice.multipratice.querydsl.QueryDslTest], using SpringBootContextLoader
+2024-08-30 21:12:20.621  INFO 5502 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.multi.pratice.multipratice.querydsl.QueryDslTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-08-30 21:12:20.621  INFO 5502 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.multi.pratice.multipratice.querydsl.QueryDslTest]: QueryDslTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-30 21:12:20.623  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.multi.pratice.multipratice.MultiPracticeApplication for test class com.multi.pratice.multipratice.querydsl.QueryDslTest
+2024-08-30 21:12:20.624  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-08-30 21:12:20.624  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@745b91db, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6fe08ffc, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@32b186e5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@57a4daf6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7f594c90, org.springframework.test.context.support.DirtiesContextTestExecutionListener@14adb3e8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2a159936, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5b1785e8, org.springframework.test.context.event.EventPublishingTestExecutionListener@6e9f7fd6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@17d4a31e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@118e44fb, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7651bbe7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@63250b34, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@51db881d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3211a741]
+Hibernate: 
+    select
+        member0_.id as id1_5_,
+        member0_.created_at as created_2_5_,
+        member0_.updated_at as updated_3_5_,
+        member0_.company_city as company_4_5_,
+        member0_.company_address_detail as company_5_5_,
+        member0_.company_district as company_6_5_,
+        member0_.company_zip_code as company_7_5_,
+        member0_.email as email8_5_,
+        member0_.gender as gender9_5_,
+        member0_.home_city as home_ci10_5_,
+        member0_.home_address_detail as home_ad11_5_,
+        member0_.home_district as home_di12_5_,
+        member0_.home_zip_code as home_zi13_5_,
+        member0_.name as name14_5_ 
+    from
+        member member0_ 
+    where
+        member0_.name=? 
+        and member0_.email=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        member0_.id as id1_5_,
+        member0_.created_at as created_2_5_,
+        member0_.updated_at as updated_3_5_,
+        member0_.company_city as company_4_5_,
+        member0_.company_address_detail as company_5_5_,
+        member0_.company_district as company_6_5_,
+        member0_.company_zip_code as company_7_5_,
+        member0_.email as email8_5_,
+        member0_.gender as gender9_5_,
+        member0_.home_city as home_ci10_5_,
+        member0_.home_address_detail as home_ad11_5_,
+        member0_.home_district as home_di12_5_,
+        member0_.home_zip_code as home_zi13_5_,
+        member0_.name as name14_5_ 
+    from
+        member member0_ 
+    where
+        member0_.name=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        member0_.id as id1_5_,
+        member0_.created_at as created_2_5_,
+        member0_.updated_at as updated_3_5_,
+        member0_.company_city as company_4_5_,
+        member0_.company_address_detail as company_5_5_,
+        member0_.company_district as company_6_5_,
+        member0_.company_zip_code as company_7_5_,
+        member0_.email as email8_5_,
+        member0_.gender as gender9_5_,
+        member0_.home_city as home_ci10_5_,
+        member0_.home_address_detail as home_ad11_5_,
+        member0_.home_district as home_di12_5_,
+        member0_.home_zip_code as home_zi13_5_,
+        member0_.name as name14_5_ 
+    from
+        member member0_ 
+    order by
+        member0_.id desc,
+        case 
+            when member0_.name is null then 1 
+            else 0 
+        end,
+        member0_.name asc
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

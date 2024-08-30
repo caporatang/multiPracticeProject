@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.multi.pratice.multipratice.jpa.service.EntityManagerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-08-30T12:11:29" hostname="MacBook-Pro.local" time="0.04">
+  <properties/>
+  <testcase name="cacheFindTest2()" classname="com.multi.pratice.multipratice.jpa.service.EntityManagerTest" time="0.01"/>
+  <testcase name="cacheFindTest3()" classname="com.multi.pratice.multipratice.jpa.service.EntityManagerTest" time="0.015"/>
+  <testcase name="entityManagerTest()" classname="com.multi.pratice.multipratice.jpa.service.EntityManagerTest" time="0.008"/>
+  <testcase name="cacheFindTest()" classname="com.multi.pratice.multipratice.jpa.service.EntityManagerTest" time="0.005"/>
+  <system-out><![CDATA[2024-08-30 21:11:29.318  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.multi.pratice.multipratice.jpa.service.EntityManagerTest], using SpringBootContextLoader
+2024-08-30 21:11:29.318  INFO 5502 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.multi.pratice.multipratice.jpa.service.EntityManagerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2024-08-30 21:11:29.318  INFO 5502 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.multi.pratice.multipratice.jpa.service.EntityManagerTest]: EntityManagerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-08-30 21:11:29.319  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.multi.pratice.multipratice.MultiPracticeApplication for test class com.multi.pratice.multipratice.jpa.service.EntityManagerTest
+2024-08-30 21:11:29.320  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2024-08-30 21:11:29.320  INFO 5502 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@41685a10, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@429c905b, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2ba73c12, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7589c8b8, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@76b2a4c3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@500aec06, org.springframework.test.context.transaction.TransactionalTestExecutionListener@425f0db9, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@79a8c142, org.springframework.test.context.event.EventPublishingTestExecutionListener@1a5fe608, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1d325399, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@27baa743, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1827c027, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7dad1a8d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@728c203a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7e0197]
+2024-08-30 21:11:29.322  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@508e64e0, testMethod = cacheFindTest2@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@734c1673]; rollback [true]
+Hibernate: 
+    select
+        member0_.id as id1_5_0_,
+        member0_.created_at as created_2_5_0_,
+        member0_.updated_at as updated_3_5_0_,
+        member0_.company_city as company_4_5_0_,
+        member0_.company_address_detail as company_5_5_0_,
+        member0_.company_district as company_6_5_0_,
+        member0_.company_zip_code as company_7_5_0_,
+        member0_.email as email8_5_0_,
+        member0_.gender as gender9_5_0_,
+        member0_.home_city as home_ci10_5_0_,
+        member0_.home_address_detail as home_ad11_5_0_,
+        member0_.home_district as home_di12_5_0_,
+        member0_.home_zip_code as home_zi13_5_0_,
+        member0_.name as name14_5_0_,
+        memberhist1_.member_id as member_15_6_1_,
+        memberhist1_.id as id1_6_1_,
+        memberhist1_.id as id1_6_2_,
+        memberhist1_.created_at as created_2_6_2_,
+        memberhist1_.updated_at as updated_3_6_2_,
+        memberhist1_.company_city as company_4_6_2_,
+        memberhist1_.company_address_detail as company_5_6_2_,
+        memberhist1_.company_district as company_6_6_2_,
+        memberhist1_.company_zip_code as company_7_6_2_,
+        memberhist1_.email as email8_6_2_,
+        memberhist1_.gender as gender9_6_2_,
+        memberhist1_.home_city as home_ci10_6_2_,
+        memberhist1_.home_address_detail as home_ad11_6_2_,
+        memberhist1_.home_district as home_di12_6_2_,
+        memberhist1_.home_zip_code as home_zi13_6_2_,
+        memberhist1_.member_id as member_15_6_2_,
+        memberhist1_.name as name14_6_2_ 
+    from
+        member member0_ 
+    left outer join
+        member_history memberhist1_ 
+            on member0_.id=memberhist1_.member_id 
+    where
+        member0_.id=?
+----------------------------------------
+>>> 1 Member(id=1, name=taeilllll, email=caporatnaggggg@naver.com, gender=null, homeAddress=null, companyAddress=null)
+Hibernate: 
+    insert 
+    into
+        member_history
+        (created_at, updated_at, company_city, company_address_detail, company_district, company_zip_code, email, gender, home_city, home_address_detail, home_district, home_zip_code, member_id, name) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    update
+        member 
+    set
+        updated_at=?,
+        company_city=?,
+        company_address_detail=?,
+        company_district=?,
+        company_zip_code=?,
+        email=?,
+        gender=?,
+        home_city=?,
+        home_address_detail=?,
+        home_district=?,
+        home_zip_code=?,
+        name=? 
+    where
+        id=?
+>>> 2 Member(id=1, name=taeilllll, email=caporatnaggggg@naver.com, gender=null, homeAddress=null, companyAddress=null)
+2024-08-30 21:11:29.330  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@508e64e0, testMethod = cacheFindTest2@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2024-08-30 21:11:29.332  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@3ad546be, testMethod = cacheFindTest3@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@734c1673]; rollback [true]
+Hibernate: 
+    select
+        member0_.id as id1_5_0_,
+        member0_.created_at as created_2_5_0_,
+        member0_.updated_at as updated_3_5_0_,
+        member0_.company_city as company_4_5_0_,
+        member0_.company_address_detail as company_5_5_0_,
+        member0_.company_district as company_6_5_0_,
+        member0_.company_zip_code as company_7_5_0_,
+        member0_.email as email8_5_0_,
+        member0_.gender as gender9_5_0_,
+        member0_.home_city as home_ci10_5_0_,
+        member0_.home_address_detail as home_ad11_5_0_,
+        member0_.home_district as home_di12_5_0_,
+        member0_.home_zip_code as home_zi13_5_0_,
+        member0_.name as name14_5_0_,
+        memberhist1_.member_id as member_15_6_1_,
+        memberhist1_.id as id1_6_1_,
+        memberhist1_.id as id1_6_2_,
+        memberhist1_.created_at as created_2_6_2_,
+        memberhist1_.updated_at as updated_3_6_2_,
+        memberhist1_.company_city as company_4_6_2_,
+        memberhist1_.company_address_detail as company_5_6_2_,
+        memberhist1_.company_district as company_6_6_2_,
+        memberhist1_.company_zip_code as company_7_6_2_,
+        memberhist1_.email as email8_6_2_,
+        memberhist1_.gender as gender9_6_2_,
+        memberhist1_.home_city as home_ci10_6_2_,
+        memberhist1_.home_address_detail as home_ad11_6_2_,
+        memberhist1_.home_district as home_di12_6_2_,
+        memberhist1_.home_zip_code as home_zi13_6_2_,
+        memberhist1_.member_id as member_15_6_2_,
+        memberhist1_.name as name14_6_2_ 
+    from
+        member member0_ 
+    left outer join
+        member_history memberhist1_ 
+            on member0_.id=memberhist1_.member_id 
+    where
+        member0_.id=?
+----------------------------------------
+Hibernate: 
+    insert 
+    into
+        member_history
+        (created_at, updated_at, company_city, company_address_detail, company_district, company_zip_code, email, gender, home_city, home_address_detail, home_district, home_zip_code, member_id, name) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    update
+        member 
+    set
+        updated_at=?,
+        company_city=?,
+        company_address_detail=?,
+        company_district=?,
+        company_zip_code=?,
+        email=?,
+        gender=?,
+        home_city=?,
+        home_address_detail=?,
+        home_district=?,
+        home_zip_code=?,
+        name=? 
+    where
+        id=?
+Hibernate: 
+    select
+        member0_.id as id1_5_,
+        member0_.created_at as created_2_5_,
+        member0_.updated_at as updated_3_5_,
+        member0_.company_city as company_4_5_,
+        member0_.company_address_detail as company_5_5_,
+        member0_.company_district as company_6_5_,
+        member0_.company_zip_code as company_7_5_,
+        member0_.email as email8_5_,
+        member0_.gender as gender9_5_,
+        member0_.home_city as home_ci10_5_,
+        member0_.home_address_detail as home_ad11_5_,
+        member0_.home_district as home_di12_5_,
+        member0_.home_zip_code as home_zi13_5_,
+        member0_.name as name14_5_ 
+    from
+        member member0_
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+[Member(id=1, name=taeilllll, email=caporatnaggggg@naver.com, gender=null, homeAddress=null, companyAddress=null), Member(id=2, name=capo, email=capo@naver.com, gender=null, homeAddress=null, companyAddress=null), Member(id=3, name=sophia, email=sophia@fastcampus.com, gender=null, homeAddress=null, companyAddress=null), Member(id=4, name=james, email=james@fastcampus.com, gender=null, homeAddress=null, companyAddress=null), Member(id=5, name=taeil, email=taeil@fastcampus.com, gender=null, homeAddress=null, companyAddress=null)]
+2024-08-30 21:11:29.346  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@3ad546be, testMethod = cacheFindTest3@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2024-08-30 21:11:29.347  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@5355a8ac, testMethod = entityManagerTest@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@734c1673]; rollback [true]
+Hibernate: 
+    select
+        member0_.id as id1_5_,
+        member0_.created_at as created_2_5_,
+        member0_.updated_at as updated_3_5_,
+        member0_.company_city as company_4_5_,
+        member0_.company_address_detail as company_5_5_,
+        member0_.company_district as company_6_5_,
+        member0_.company_zip_code as company_7_5_,
+        member0_.email as email8_5_,
+        member0_.gender as gender9_5_,
+        member0_.home_city as home_ci10_5_,
+        member0_.home_address_detail as home_ad11_5_,
+        member0_.home_district as home_di12_5_,
+        member0_.home_zip_code as home_zi13_5_,
+        member0_.name as name14_5_ 
+    from
+        member member0_
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+Hibernate: 
+    select
+        memberhist0_.member_id as member_15_6_0_,
+        memberhist0_.id as id1_6_0_,
+        memberhist0_.id as id1_6_1_,
+        memberhist0_.created_at as created_2_6_1_,
+        memberhist0_.updated_at as updated_3_6_1_,
+        memberhist0_.company_city as company_4_6_1_,
+        memberhist0_.company_address_detail as company_5_6_1_,
+        memberhist0_.company_district as company_6_6_1_,
+        memberhist0_.company_zip_code as company_7_6_1_,
+        memberhist0_.email as email8_6_1_,
+        memberhist0_.gender as gender9_6_1_,
+        memberhist0_.home_city as home_ci10_6_1_,
+        memberhist0_.home_address_detail as home_ad11_6_1_,
+        memberhist0_.home_district as home_di12_6_1_,
+        memberhist0_.home_zip_code as home_zi13_6_1_,
+        memberhist0_.member_id as member_15_6_1_,
+        memberhist0_.name as name14_6_1_ 
+    from
+        member_history memberhist0_ 
+    where
+        memberhist0_.member_id=?
+[Member(id=1, name=taeil, email=taeil@naver.com, gender=null, homeAddress=null, companyAddress=null), Member(id=2, name=capo, email=capo@naver.com, gender=null, homeAddress=null, companyAddress=null), Member(id=3, name=sophia, email=sophia@fastcampus.com, gender=null, homeAddress=null, companyAddress=null), Member(id=4, name=james, email=james@fastcampus.com, gender=null, homeAddress=null, companyAddress=null), Member(id=5, name=taeil, email=taeil@fastcampus.com, gender=null, homeAddress=null, companyAddress=null)]
+2024-08-30 21:11:29.354  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@5355a8ac, testMethod = entityManagerTest@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+2024-08-30 21:11:29.356  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@656d35ae, testMethod = cacheFindTest@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@734c1673]; rollback [true]
+Hibernate: 
+    select
+        member0_.id as id1_5_0_,
+        member0_.created_at as created_2_5_0_,
+        member0_.updated_at as updated_3_5_0_,
+        member0_.company_city as company_4_5_0_,
+        member0_.company_address_detail as company_5_5_0_,
+        member0_.company_district as company_6_5_0_,
+        member0_.company_zip_code as company_7_5_0_,
+        member0_.email as email8_5_0_,
+        member0_.gender as gender9_5_0_,
+        member0_.home_city as home_ci10_5_0_,
+        member0_.home_address_detail as home_ad11_5_0_,
+        member0_.home_district as home_di12_5_0_,
+        member0_.home_zip_code as home_zi13_5_0_,
+        member0_.name as name14_5_0_,
+        memberhist1_.member_id as member_15_6_1_,
+        memberhist1_.id as id1_6_1_,
+        memberhist1_.id as id1_6_2_,
+        memberhist1_.created_at as created_2_6_2_,
+        memberhist1_.updated_at as updated_3_6_2_,
+        memberhist1_.company_city as company_4_6_2_,
+        memberhist1_.company_address_detail as company_5_6_2_,
+        memberhist1_.company_district as company_6_6_2_,
+        memberhist1_.company_zip_code as company_7_6_2_,
+        memberhist1_.email as email8_6_2_,
+        memberhist1_.gender as gender9_6_2_,
+        memberhist1_.home_city as home_ci10_6_2_,
+        memberhist1_.home_address_detail as home_ad11_6_2_,
+        memberhist1_.home_district as home_di12_6_2_,
+        memberhist1_.home_zip_code as home_zi13_6_2_,
+        memberhist1_.member_id as member_15_6_2_,
+        memberhist1_.name as name14_6_2_ 
+    from
+        member member0_ 
+    left outer join
+        member_history memberhist1_ 
+            on member0_.id=memberhist1_.member_id 
+    where
+        member0_.id=?
+2024-08-30 21:11:29.360  INFO 5502 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@208cbbdf testClass = EntityManagerTest, testInstance = com.multi.pratice.multipratice.jpa.service.EntityManagerTest@656d35ae, testMethod = cacheFindTest@EntityManagerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@da0d41 testClass = EntityManagerTest, locations = '{}', classes = '{class com.multi.pratice.multipratice.MultiPracticeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7e1762e6, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@b849fa6, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@56ba8e8c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4ec27c4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4f82248f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@2289aca5], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -> true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -> true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
