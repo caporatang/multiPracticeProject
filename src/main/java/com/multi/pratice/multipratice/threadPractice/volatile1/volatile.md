@@ -95,4 +95,4 @@ Java Memory Model(JMM)은 자바 프로그램이 어떻게 메모리에 접근�
   2. volatile 변수 규칙 : 한 스레드에서 volatile 변수에 대한 쓰기 작업은 해당 변수를 읽는 모든 스레드에 보이도록 한다. volatile 변수에 대한 쓰기 작업은 그 변수를 읽는 작업보다 happens-before 관계를 형성한다.
   3. 스레드 시작 규칙 : 한 스레드에서 Thread.start() 를 호출하면, 해당 스레드 내의 모든 작업은 start() 호출 이후에 실행된 작업보다 happens-before 관계가 성립된다.  
 
-결국 happens-before는 volatile 또는 동기화 기법을 사용하면 메모리 가시성의 문제가 발생하지 않는다.
+결국, volatile 또는 동기화 기법을 사용하면 메모리 가시성의 문제가 발생하지 않는다.
