@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/multiPratice.main.iml" filepath="$PROJECT_DIR$/.idea/modules/multiPratice.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/restTemplateServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/restTemplateServer.main.iml" />
     </modules>
   </component>
 </project>
