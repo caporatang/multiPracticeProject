@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RedisSecurityJWT.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/restTemplateServer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/restTemplateServer.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/securityStudy/securityStudy.iml" filepath="$PROJECT_DIR$/securityStudy/securityStudy.iml" />
     </modules>
   </component>
 </project>
